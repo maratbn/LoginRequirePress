@@ -59,11 +59,21 @@ function action_send_headers() {
     if (is_user_logged_in()) return;
 
     global $wp;
-    $strPagename = $wp->query_vars['pagename'];
+    $w_p_query = new \WP_Query($wp->query_vars);
 
-    if (strcasecmp($strPagename, 'sample-page') == 0) {
-        \header('Location: ' . wp_login_url(home_url($_SERVER['REQUEST_URI'])));
-        exit(0);
+    global $post;
+    if ($w_p_query->have_posts()) {
+        while($w_p_query->have_posts()) {
+            $w_p_query->the_post();
+            $strPostMetaPasswordProtectPress = \get_post_meta($post->ID,
+                                                              'password_protect_press',
+                                                              true);
+            if (strcasecmp($strPostMetaPasswordProtectPress, 'yes') == 0) {
+                \header('Location: ' . wp_login_url(home_url($_SERVER['REQUEST_URI'])));
+                exit(0);
+            }
+        }
+        wp_reset_postdata();
     }
 }
 
