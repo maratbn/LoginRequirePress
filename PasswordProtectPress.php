@@ -40,57 +40,57 @@
   along with PasswordProtectPress.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace plugin_PasswordProtectPress;
+    namespace plugin_PasswordProtectPress;
 
 
-const PASSWORD_PROTECT_PRESS  = 'password_protect_press';
-const YES                     = 'yes';
+    const PASSWORD_PROTECT_PRESS  = 'password_protect_press';
+    const YES                     = 'yes';
 
-add_action('admin_menu', '\\plugin_PasswordProtectPress\\action_admin_menu');
-add_action('send_headers', '\\plugin_PasswordProtectPress\\action_send_headers');
+    add_action('admin_menu', '\\plugin_PasswordProtectPress\\action_admin_menu');
+    add_action('send_headers', '\\plugin_PasswordProtectPress\\action_send_headers');
 
 
-function action_admin_menu() {
-    add_options_page( 'PasswordProtectPress Settings',
-                      'PasswordProtectPress',
-                      'manage_options',
-                      'plugin_PasswordProtectPress_settings',
-                      '\\plugin_PasswordProtectPress\\render_settings');
-}
+    function action_admin_menu() {
+        add_options_page( 'PasswordProtectPress Settings',
+                          'PasswordProtectPress',
+                          'manage_options',
+                          'plugin_PasswordProtectPress_settings',
+                          '\\plugin_PasswordProtectPress\\render_settings');
+    }
 
-function action_send_headers() {
+    function action_send_headers() {
 
-    if (is_user_logged_in()) return;
+        if (is_user_logged_in()) return;
 
-    global $wp;
-    $w_p_query = new \WP_Query($wp->query_vars);
+        global $wp;
+        $w_p_query = new \WP_Query($wp->query_vars);
 
-    global $post;
-    if ($w_p_query->have_posts()) {
-        while($w_p_query->have_posts()) {
-            $w_p_query->the_post();
-            $strPostMetaPasswordProtectPress = \get_post_meta($post->ID,
-                                                              PASSWORD_PROTECT_PRESS,
-                                                              true);
-            if (strcasecmp($strPostMetaPasswordProtectPress, YES) == 0) {
-                \header('Location: ' . wp_login_url(home_url($_SERVER['REQUEST_URI'])));
-                exit(0);
+        global $post;
+        if ($w_p_query->have_posts()) {
+            while($w_p_query->have_posts()) {
+                $w_p_query->the_post();
+                $strPostMetaPasswordProtectPress = \get_post_meta($post->ID,
+                                                                  PASSWORD_PROTECT_PRESS,
+                                                                  true);
+                if (strcasecmp($strPostMetaPasswordProtectPress, YES) == 0) {
+                    \header('Location: ' . wp_login_url(home_url($_SERVER['REQUEST_URI'])));
+                    exit(0);
+                }
             }
+            wp_reset_postdata();
         }
-        wp_reset_postdata();
     }
-}
 
-function render_settings() {
-    //  Based on http://codex.wordpress.org/Administration_Menus
-    if (!current_user_can('manage_options' ))  {
-        wp_die(__('You do not have sufficient permissions to access this page.'));
+    function render_settings() {
+        //  Based on http://codex.wordpress.org/Administration_Menus
+        if (!current_user_can('manage_options' ))  {
+            wp_die(__('You do not have sufficient permissions to access this page.'));
+        }
+    ?>
+    <div class="wrap">
+    <p>Here is where the form would go if I actually had options.</p>
+    </div>
+    <?php
     }
-?>
-<div class="wrap">
-<p>Here is where the form would go if I actually had options.</p>
-</div>
-<?php
-}
 
 ?>
