@@ -86,9 +86,21 @@
         if (!current_user_can('manage_options' ))  {
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
-    ?><div class="wrap"><?php
+    ?><div class="wrap"><ul><?php
 
-    ?></div><?php
+        $w_p_query = new \WP_Query(['post_type' => \get_post_types(['public' => true]),
+                                    'post_status' => 'any']);
+
+        global $post;
+        if ($w_p_query->have_posts()) {
+            while($w_p_query->have_posts()) {
+                $w_p_query->the_post();
+            ?><li><?=$post->ID?></li><?php
+            }
+            wp_reset_postdata();
+        }
+
+    ?></ul></div><?php
     }
 
 ?>
