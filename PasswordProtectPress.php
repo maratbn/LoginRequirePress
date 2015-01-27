@@ -39,4 +39,22 @@
   You should have received a copy of the GNU General Public License
   along with PasswordProtectPress.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+namespace plugin_PasswordProtectPress;
+
+add_action('send_headers', '\\plugin_PasswordProtectPress\\action_send_headers');
+
+function action_send_headers() {
+
+    if (is_user_logged_in()) return;
+
+    global $wp;
+    $strPagename = $wp->query_vars['pagename'];
+
+    if (strcasecmp($strPagename, 'sample-page') == 0) {
+        \header('Location: ' . wp_login_url(home_url($_SERVER['REQUEST_URI'])));
+        exit(0);
+    }
+}
+
 ?>
