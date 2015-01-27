@@ -42,7 +42,17 @@
 
 namespace plugin_PasswordProtectPress;
 
+add_action('admin_menu', '\\plugin_PasswordProtectPress\\action_admin_menu');
 add_action('send_headers', '\\plugin_PasswordProtectPress\\action_send_headers');
+
+
+function action_admin_menu() {
+    add_options_page( 'PasswordProtectPress Settings',
+                      'PasswordProtectPress',
+                      'manage_options',
+                      'plugin_PasswordProtectPress_settings',
+                      '\\plugin_PasswordProtectPress\\render_settings');
+}
 
 function action_send_headers() {
 
@@ -55,6 +65,18 @@ function action_send_headers() {
         \header('Location: ' . wp_login_url(home_url($_SERVER['REQUEST_URI'])));
         exit(0);
     }
+}
+
+function render_settings() {
+    //  Based on http://codex.wordpress.org/Administration_Menus
+    if (!current_user_can('manage_options' ))  {
+        wp_die(__('You do not have sufficient permissions to access this page.'));
+    }
+?>
+<div class="wrap">
+<p>Here is where the form would go if I actually had options.</p>
+</div>
+<?php
 }
 
 ?>
