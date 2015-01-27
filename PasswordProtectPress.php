@@ -43,7 +43,8 @@
 namespace plugin_PasswordProtectPress;
 
 
-const PASSWORD_PROTECT_PRESS = 'password_protect_press';
+const PASSWORD_PROTECT_PRESS  = 'password_protect_press';
+const YES                     = 'yes';
 
 add_action('admin_menu', '\\plugin_PasswordProtectPress\\action_admin_menu');
 add_action('send_headers', '\\plugin_PasswordProtectPress\\action_send_headers');
@@ -71,7 +72,7 @@ function action_send_headers() {
             $strPostMetaPasswordProtectPress = \get_post_meta($post->ID,
                                                               PASSWORD_PROTECT_PRESS,
                                                               true);
-            if (strcasecmp($strPostMetaPasswordProtectPress, 'yes') == 0) {
+            if (strcasecmp($strPostMetaPasswordProtectPress, YES) == 0) {
                 \header('Location: ' . wp_login_url(home_url($_SERVER['REQUEST_URI'])));
                 exit(0);
             }
