@@ -95,7 +95,7 @@
         if ($w_p_query->have_posts()) {
             while($w_p_query->have_posts()) {
                 $w_p_query->the_post();
-            ?><li><?=$post->ID?></li><?php
+            ?><li><?=$post->post_name?></li><?php
             }
             wp_reset_postdata();
         }
