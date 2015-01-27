@@ -2,8 +2,7 @@
 /*
   Plugin Name: PasswordProtectPress
   Plugin URI: http://www.maratbn.com/
-  Description: WordPress plugin for password-protecting regular posts and pages on a WordPress
-               site, making them accessible to regular site subscribers upon login.
+  Description: WordPress plugin for password-protecting regular posts and pages on a WordPress site, making them accessible to regular site subscribers upon login.
   Author: Marat Nepomnyashy
   Author URI: http://www.maratbn.com
   License: GPL3
