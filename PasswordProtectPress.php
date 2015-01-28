@@ -98,7 +98,7 @@
         if ($w_p_query->have_posts()) {
             while($w_p_query->have_posts()) {
                 $w_p_query->the_post();
-            ?><li><?=$post->post_name?></li><?php
+            ?><li><a href='<?=get_edit_post_link($post->ID)?>'><?=$post->post_name?></a></li><?php
             }
             wp_reset_postdata();
         }
