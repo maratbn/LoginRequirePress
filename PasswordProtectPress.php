@@ -103,6 +103,11 @@
                 $w_p_query->the_post();
             ?><li>
                 <a href='<?=get_edit_post_link($post->ID)?>'><?=$post->post_name?></a>
+                <?php
+                    if (isPostPasswordProtected($post)) {
+                    ?>login required<?php
+                    }
+                ?>
               </li><?php
             }
             wp_reset_postdata();
