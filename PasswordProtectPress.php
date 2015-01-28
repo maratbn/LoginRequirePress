@@ -90,8 +90,8 @@
 
         $w_p_query = new \WP_Query(['order'           => 'ASC',
                                     'orderby'         => 'name',
-                                    'post_type'       => \get_post_types(['public' => true]),
                                     'post_status'     => 'any',
+                                    'post_type'       => \get_post_types(['public' => true]),
                                     'posts_per_page'  => -1]);
 
         global $post;
