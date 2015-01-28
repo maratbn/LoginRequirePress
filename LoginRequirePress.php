@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: PasswordProtectPress
+  Plugin Name: LoginRequirePress
   Plugin URI: http://www.maratbn.com/
   Description: WordPress plugin for password-protecting regular posts and pages on a WordPress site, making them accessible to regular site subscribers upon login.
   Author: Marat Nepomnyashy
@@ -10,52 +10,52 @@
 */
 
 /*
-  PasswordProtectPress -- WordPress plugin for password-protecting regular
-                          posts and pages on a WordPress site, making them
-                          accessible to regular site subscribers upon login.
+  LoginRequirePress -- WordPress plugin for password-protecting regular posts
+                       and pages on a WordPress site, making them accessible
+                       to regular site subscribers upon login.
 
   Copyright (C) 2015  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
 
   Version:        0.0.1-development_unreleased
 
-  Module:         PasswordProtectPress.php
+  Module:         LoginRequirePress.php
 
-  Description:    Main PHP file for the WordPress plugin 'PasswordProtectPress'.
+  Description:    Main PHP file for the WordPress plugin 'LoginRequirePress'.
 
-  This file is part of PasswordProtectPress.
+  This file is part of LoginRequirePress.
 
   Licensed under the GNU General Public License Version 3.
 
-  PasswordProtectPress is free software: you can redistribute it and/or modify
+  LoginRequirePress is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  PasswordProtectPress is distributed in the hope that it will be useful,
+  LoginRequirePress is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with PasswordProtectPress.  If not, see <http://www.gnu.org/licenses/>.
+  along with LoginRequirePress.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-    namespace plugin_PasswordProtectPress;
+    namespace plugin_LoginRequirePress;
 
 
     const PASSWORD_PROTECT_PRESS  = 'password_protect_press';
     const YES                     = 'yes';
 
-    add_action('admin_menu', '\\plugin_PasswordProtectPress\\action_admin_menu');
-    add_action('send_headers', '\\plugin_PasswordProtectPress\\action_send_headers');
+    add_action('admin_menu', '\\plugin_LoginRequirePress\\action_admin_menu');
+    add_action('send_headers', '\\plugin_LoginRequirePress\\action_send_headers');
 
 
     function action_admin_menu() {
-        add_options_page( 'PasswordProtectPress Settings',
-                          'PasswordProtectPress',
+        add_options_page( 'LoginRequirePress Settings',
+                          'LoginRequirePress',
                           'manage_options',
-                          'plugin_PasswordProtectPress_settings',
-                          '\\plugin_PasswordProtectPress\\render_settings');
+                          'plugin_LoginRequirePress_settings',
+                          '\\plugin_LoginRequirePress\\render_settings');
     }
 
     function action_send_headers() {
