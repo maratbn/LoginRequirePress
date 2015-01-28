@@ -43,7 +43,7 @@
     namespace plugin_LoginRequirePress;
 
 
-    const PASSWORD_PROTECT_PRESS  = 'password_protect_press';
+    const LOGIN_REQUIRE_PRESS     = 'login_require_press';
     const YES                     = 'yes';
 
     add_action('admin_menu', '\\plugin_LoginRequirePress\\action_admin_menu');
@@ -80,7 +80,7 @@
 
     function isLoginRequiredForPost(&$post) {
         return (strcasecmp(YES, \get_post_meta($post->ID,
-                                               PASSWORD_PROTECT_PRESS,
+                                               LOGIN_REQUIRE_PRESS,
                                                true)) == 0);
     }
 
