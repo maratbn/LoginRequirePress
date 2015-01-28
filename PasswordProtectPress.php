@@ -88,8 +88,9 @@
         }
     ?><div class="wrap"><ul><?php
 
-        $w_p_query = new \WP_Query(['post_type'    => \get_post_types(['public' => true]),
-                                    'post_status'  => 'any']);
+        $w_p_query = new \WP_Query(['posts_per_page'  => -1,
+                                    'post_type'       => \get_post_types(['public' => true]),
+                                    'post_status'     => 'any']);
 
         global $post;
         if ($w_p_query->have_posts()) {
