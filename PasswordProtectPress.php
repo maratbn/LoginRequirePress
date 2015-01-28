@@ -69,16 +69,19 @@
         if ($w_p_query->have_posts()) {
             while($w_p_query->have_posts()) {
                 $w_p_query->the_post();
-                $strPostMetaPasswordProtectPress = \get_post_meta($post->ID,
-                                                                  PASSWORD_PROTECT_PRESS,
-                                                                  true);
-                if (strcasecmp($strPostMetaPasswordProtectPress, YES) == 0) {
+                if (isPostPasswordProtected($post)) {
                     \header('Location: ' . wp_login_url(home_url($_SERVER['REQUEST_URI'])));
                     exit(0);
                 }
             }
             wp_reset_postdata();
         }
+    }
+
+    function isPostPasswordProtected(&$post) {
+        return (strcasecmp(YES, \get_post_meta($post->ID,
+                                               PASSWORD_PROTECT_PRESS,
+                                               true)) == 0);
     }
 
     function render_settings() {
