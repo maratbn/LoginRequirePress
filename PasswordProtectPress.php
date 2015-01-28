@@ -69,7 +69,7 @@
         if ($w_p_query->have_posts()) {
             while($w_p_query->have_posts()) {
                 $w_p_query->the_post();
-                if (isPostPasswordProtected($post)) {
+                if (isLoginRequiredForPost($post)) {
                     \header('Location: ' . wp_login_url(home_url($_SERVER['REQUEST_URI'])));
                     exit(0);
                 }
@@ -78,7 +78,7 @@
         }
     }
 
-    function isPostPasswordProtected(&$post) {
+    function isLoginRequiredForPost(&$post) {
         return (strcasecmp(YES, \get_post_meta($post->ID,
                                                PASSWORD_PROTECT_PRESS,
                                                true)) == 0);
@@ -104,7 +104,7 @@
             ?><li>
                 <a href='<?=get_edit_post_link($post->ID)?>'><?=$post->post_name?></a>
                 <?php
-                    if (isPostPasswordProtected($post)) {
+                    if (isLoginRequiredForPost($post)) {
                     ?>login required<?php
                     }
                 ?>
