@@ -154,7 +154,7 @@
                   <td>
                   <?php
                       if ($isLoginRequired) {
-                      ?>login required<?php
+                          echo YES;
                       }
                   ?>
                   </td>
