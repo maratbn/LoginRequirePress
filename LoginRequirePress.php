@@ -47,6 +47,8 @@
     const YES                     = 'yes';
 
     add_action('admin_menu', '\\plugin_LoginRequirePress\\action_admin_menu');
+    add_action('admin_post_plugin_LoginRequirePress_settings',
+               '\\plugin_LoginRequirePress\\action_admin_post_plugin_LoginRequirePress_settings');
     add_action('send_headers', '\\plugin_LoginRequirePress\\action_send_headers');
 
 
@@ -56,6 +58,19 @@
                           'manage_options',
                           'plugin_LoginRequirePress_settings',
                           '\\plugin_LoginRequirePress\\render_settings');
+    }
+
+    function action_admin_post_plugin_LoginRequirePress_settings() {
+        //  Based on: http://jaskokoyn.com/2013/03/26/wordpress-admin-forms/
+        if (!current_user_can('manage_options')) {
+            wp_die('Insufficient user permissions to modify options.');
+        }
+
+        // Check that nonce field
+        check_admin_referer('plugin_LoginRequirePress_settings_nonce');
+
+        wp_redirect(admin_url('options-general.php?page=plugin_LoginRequirePress_settings'));
+        exit();
     }
 
     function action_send_headers() {
@@ -89,7 +104,9 @@
         if (!current_user_can('manage_options' ))  {
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
-    ?><div class="wrap"><?php
+    ?><div class="wrap"><form method='post' action='admin-post.php'><?php
+      ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
+        wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
 
         $w_p_query = new \WP_Query(['order'           => 'ASC',
                                     'orderby'         => 'name',
@@ -130,8 +147,7 @@
         } else {
         ?>No posts<?php
         }
-
-    ?></div><?php
+    ?><hr><input type='submit' value='Update LR Settings' class='button-primary'/></form></div><?php
     }
 
 ?>
