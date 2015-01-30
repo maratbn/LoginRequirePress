@@ -129,7 +129,7 @@
 
         global $post;
         if ($w_p_query->have_posts()) {
-        ?><table><?php
+        ?><table style='border-collapse:collapse'><?php
           ?><tr><?php
             ?><th style='padding-right:15px;text-align:left'>LR</th><?php
             ?><th style='padding-right:15px;text-align:left'>Post Name</th><?php
