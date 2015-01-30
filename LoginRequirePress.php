@@ -104,6 +104,9 @@
                 $w_p_query->the_post();
                 $isLoginRequired = isLoginRequiredForPost($post);
             ?><tr>
+                <td><input type='checkbox' name='lock_<?=$post->post_name?>' <?=$isLoginRequired
+                                                                                ? 'checked'
+                                                                                : ""?>></td>
                 <td><a href='<?=get_edit_post_link($post->ID)?>'><?=$post->post_name?></a></td>
                 <?php
                     if ($isLoginRequired) {
