@@ -70,10 +70,10 @@
         check_admin_referer('plugin_LoginRequirePress_settings_nonce');
 
         foreach ($_POST as $strFieldName => $strFieldValue) {
-            preg_match('/^post_(.+)$/', $strFieldName, $arrMatch);
+            preg_match('/^post_(\d+)$/', $strFieldName, $arrMatch);
             if ($arrMatch && count($arrMatch) == 2) {
-                $strPostSlug = $arrMatch[1];
-                $flagIsLocked = isset($_POST['lock_' . $strPostSlug]);
+                $idPost = $arrMatch[1];
+                $flagIsLocked = isset($_POST['lock_' . $idPost]);
             }
         }
 
@@ -136,10 +136,10 @@
                   $idPost = $post->ID;
                   $isLoginRequired = isLoginRequiredForPost($post);
                   $strPostName = $post->post_name;
-              ?><input type='hidden' name='post_<?=$strPostName?>'><tr>
-                  <td><input type='checkbox' name='lock_<?=$strPostName?>' <?=$isLoginRequired
-                                                                              ? 'checked'
-                                                                              : ""?>></td>
+              ?><input type='hidden' name='post_<?=$idPost?>'><tr>
+                  <td><input type='checkbox' name='lock_<?=$idPost?>' <?=$isLoginRequired
+                                                                         ? 'checked'
+                                                                         : ""?>></td>
                   <td><a href='<?=get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
                   <td>
                   <?php
