@@ -137,12 +137,16 @@
             ?><th style='padding-right:15px;text-align:left'>Page Template</th><?php
             ?><th style='padding-right:15px;text-align:left'>Post Status</th><?php
           ?></tr><?php
+              $indexRow = 0;
               while($w_p_query->have_posts()) {
                   $w_p_query->the_post();
                   $idPost = $post->ID;
                   $isLoginRequired = isLoginRequiredForPost($post);
                   $strPostName = $post->post_name;
-              ?><input type='hidden' name='post_<?=$idPost?>'><tr>
+              ?><input type='hidden' name='post_<?=$idPost?>'><?php
+              ?><tr <?=$indexRow % 2 == 0
+                       ? 'style=\'background-color:#dde\''
+                       : ""?>>
                   <td><input type='checkbox' name='lock_<?=$idPost?>' <?=$isLoginRequired
                                                                          ? 'checked'
                                                                          : ""?>></td>
@@ -157,6 +161,7 @@
                   <td><?=get_page_template_slug($idPost)?></td>
                   <td><?=get_post_status($idPost)?></td>
                 </tr><?php
+                  $indexRow++;
               }
               wp_reset_postdata();
         ?></table><?php
