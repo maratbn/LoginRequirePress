@@ -106,25 +106,25 @@
             ?><th>Current Setting</th><?php
             ?><th>Page Template</th><?php
           ?></tr><?php
-            while($w_p_query->have_posts()) {
-                $w_p_query->the_post();
-                $isLoginRequired = isLoginRequiredForPost($post);
-            ?><tr>
-                <td><input type='checkbox' name='lock_<?=$post->post_name?>' <?=$isLoginRequired
-                                                                                ? 'checked'
-                                                                                : ""?>></td>
-                <td><a href='<?=get_edit_post_link($post->ID)?>'><?=$post->post_name?></a></td>
-                <td>
-                <?php
-                    if ($isLoginRequired) {
-                    ?>login required<?php
-                    }
-                ?>
-                </td>
-                <td><?=get_page_template_slug($post->ID)?></td>
-              </tr><?php
-            }
-            wp_reset_postdata();
+              while($w_p_query->have_posts()) {
+                  $w_p_query->the_post();
+                  $isLoginRequired = isLoginRequiredForPost($post);
+              ?><tr>
+                  <td><input type='checkbox' name='lock_<?=$post->post_name?>' <?=$isLoginRequired
+                                                                                  ? 'checked'
+                                                                                  : ""?>></td>
+                  <td><a href='<?=get_edit_post_link($post->ID)?>'><?=$post->post_name?></a></td>
+                  <td>
+                  <?php
+                      if ($isLoginRequired) {
+                      ?>login required<?php
+                      }
+                  ?>
+                  </td>
+                  <td><?=get_page_template_slug($post->ID)?></td>
+                </tr><?php
+              }
+              wp_reset_postdata();
         ?></table><?php
         }
 
