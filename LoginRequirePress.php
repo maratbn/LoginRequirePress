@@ -101,10 +101,10 @@
         if ($w_p_query->have_posts()) {
         ?><table><?php
           ?><tr><?php
-            ?><th>LR</th><?php
-            ?><th>Post Name</th><?php
-            ?><th>Current Setting</th><?php
-            ?><th>Page Template</th><?php
+            ?><th style='text-align:left'>LR</th><?php
+            ?><th style='text-align:left'>Post Name</th><?php
+            ?><th style='text-align:left'>Current Setting</th><?php
+            ?><th style='text-align:left'>Page Template</th><?php
           ?></tr><?php
               while($w_p_query->have_posts()) {
                   $w_p_query->the_post();
