@@ -99,7 +99,10 @@
 
         global $post;
         if ($w_p_query->have_posts()) {
-        ?><table><tr><th>LR</th><th>Post Name</th><th>Current Setting</th></tr><?php
+        ?><table><?php
+          ?><tr><?php
+            ?><th>LR</th><th>Post Name</th><th>Current Setting</th><th>Page Template</th><?php
+          ?></tr><?php
             while($w_p_query->have_posts()) {
                 $w_p_query->the_post();
                 $isLoginRequired = isLoginRequiredForPost($post);
@@ -115,6 +118,7 @@
                     }
                 ?>
                 </td>
+                <td><?=get_page_template_slug($post->ID)?></td>
               </tr><?php
             }
             wp_reset_postdata();
