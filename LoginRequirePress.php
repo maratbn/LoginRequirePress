@@ -101,10 +101,11 @@
         if ($w_p_query->have_posts()) {
             while($w_p_query->have_posts()) {
                 $w_p_query->the_post();
+                $isLoginRequired = isLoginRequiredForPost($post);
             ?><li>
                 <a href='<?=get_edit_post_link($post->ID)?>'><?=$post->post_name?></a>
                 <?php
-                    if (isLoginRequiredForPost($post)) {
+                    if ($isLoginRequired) {
                     ?>login required<?php
                     }
                 ?>
