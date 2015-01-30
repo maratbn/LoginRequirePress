@@ -99,21 +99,21 @@
 
         global $post;
         if ($w_p_query->have_posts()) {
-        ?><ul><?php
+        ?><table><?php
             while($w_p_query->have_posts()) {
                 $w_p_query->the_post();
                 $isLoginRequired = isLoginRequiredForPost($post);
-            ?><li>
-                <a href='<?=get_edit_post_link($post->ID)?>'><?=$post->post_name?></a>
+            ?><tr>
+                <td><a href='<?=get_edit_post_link($post->ID)?>'><?=$post->post_name?></a></td>
                 <?php
                     if ($isLoginRequired) {
-                    ?>login required<?php
+                    ?><td>login required</td><?php
                     }
                 ?>
-              </li><?php
+              </tr><?php
             }
             wp_reset_postdata();
-        ?></ul><?php
+        ?></table><?php
         }
 
     ?></div><?php
