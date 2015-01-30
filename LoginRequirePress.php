@@ -127,6 +127,8 @@
               }
               wp_reset_postdata();
         ?></table><?php
+        } else {
+        ?>No posts<?php
         }
 
     ?></div><?php
