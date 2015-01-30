@@ -89,7 +89,7 @@
         if (!current_user_can('manage_options' ))  {
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
-    ?><div class="wrap"><ul><?php
+    ?><div class="wrap"><?php
 
         $w_p_query = new \WP_Query(['order'           => 'ASC',
                                     'orderby'         => 'name',
@@ -99,6 +99,7 @@
 
         global $post;
         if ($w_p_query->have_posts()) {
+        ?><ul><?php
             while($w_p_query->have_posts()) {
                 $w_p_query->the_post();
                 $isLoginRequired = isLoginRequiredForPost($post);
@@ -112,9 +113,10 @@
               </li><?php
             }
             wp_reset_postdata();
+        ?></ul><?php
         }
 
-    ?></ul></div><?php
+    ?></div><?php
     }
 
 ?>
