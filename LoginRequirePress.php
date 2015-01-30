@@ -127,7 +127,7 @@
                   $w_p_query->the_post();
                   $isLoginRequired = isLoginRequiredForPost($post);
                   $strPostName = $post->post_name;
-              ?><tr>
+              ?><input type='hidden' name='post_<?=$strPostName?>'><tr>
                   <td><input type='checkbox' name='lock_<?=$strPostName?>' <?=$isLoginRequired
                                                                               ? 'checked'
                                                                               : ""?>></td>
