@@ -74,6 +74,11 @@
             if ($arrMatch && count($arrMatch) == 2) {
                 $idPost = $arrMatch[1];
                 $flagIsLocked = isset($_POST['lock_' . $idPost]);
+                if ($flagIsLocked) {
+                    \update_post_meta($idPost, LOGIN_REQUIRE_PRESS, YES);
+                } else {
+                    \delete_post_meta($idPost, LOGIN_REQUIRE_PRESS);
+                }
             }
         }
 
