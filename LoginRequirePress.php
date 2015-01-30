@@ -99,7 +99,7 @@
 
         global $post;
         if ($w_p_query->have_posts()) {
-        ?><table><?php
+        ?><table><tr><th>LR</th><th>Post Name</th><th>Current Setting</th></tr><?php
             while($w_p_query->have_posts()) {
                 $w_p_query->the_post();
                 $isLoginRequired = isLoginRequiredForPost($post);
