@@ -69,6 +69,14 @@
         // Check that nonce field
         check_admin_referer('plugin_LoginRequirePress_settings_nonce');
 
+        foreach ($_POST as $strFieldName => $strFieldValue) {
+            preg_match('/^post_(.+)$/', $strFieldName, $arrMatch);
+            if ($arrMatch && count($arrMatch) == 2) {
+                $strPostSlug = $arrMatch[1];
+                $flagIsLocked = isset($_POST['lock_' . $strPostSlug]);
+            }
+        }
+
         wp_redirect(admin_url('options-general.php?page=plugin_LoginRequirePress_settings'));
         exit();
     }
