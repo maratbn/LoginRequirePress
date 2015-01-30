@@ -133,13 +133,14 @@
           ?></tr><?php
               while($w_p_query->have_posts()) {
                   $w_p_query->the_post();
+                  $idPost = $post->ID;
                   $isLoginRequired = isLoginRequiredForPost($post);
                   $strPostName = $post->post_name;
               ?><input type='hidden' name='post_<?=$strPostName?>'><tr>
                   <td><input type='checkbox' name='lock_<?=$strPostName?>' <?=$isLoginRequired
                                                                               ? 'checked'
                                                                               : ""?>></td>
-                  <td><a href='<?=get_edit_post_link($post->ID)?>'><?=$strPostName?></a></td>
+                  <td><a href='<?=get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
                   <td>
                   <?php
                       if ($isLoginRequired) {
@@ -147,7 +148,7 @@
                       }
                   ?>
                   </td>
-                  <td><?=get_page_template_slug($post->ID)?></td>
+                  <td><?=get_page_template_slug($idPost)?></td>
                 </tr><?php
               }
               wp_reset_postdata();
