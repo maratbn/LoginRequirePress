@@ -108,11 +108,13 @@
                                                                                 ? 'checked'
                                                                                 : ""?>></td>
                 <td><a href='<?=get_edit_post_link($post->ID)?>'><?=$post->post_name?></a></td>
+                <td>
                 <?php
                     if ($isLoginRequired) {
-                    ?><td>login required</td><?php
+                    ?>login required<?php
                     }
                 ?>
+                </td>
               </tr><?php
             }
             wp_reset_postdata();
