@@ -135,6 +135,7 @@
             ?><th style='padding-right:15px;text-align:left'>Post Name</th><?php
             ?><th style='padding-right:15px;text-align:left'>Current LR</th><?php
             ?><th style='padding-right:15px;text-align:left'>Page Template</th><?php
+            ?><th style='padding-right:15px;text-align:left'>Post Status</th><?php
           ?></tr><?php
               while($w_p_query->have_posts()) {
                   $w_p_query->the_post();
@@ -154,6 +155,7 @@
                   ?>
                   </td>
                   <td><?=get_page_template_slug($idPost)?></td>
+                  <td><?=get_post_status($idPost)?></td>
                 </tr><?php
               }
               wp_reset_postdata();
