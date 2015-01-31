@@ -174,7 +174,7 @@
           } else {
           ?>No posts<?php
           }
-    ?></form></div><?php
+      ?></form></div><?php
     }
 
 ?>
