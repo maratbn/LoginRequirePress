@@ -134,6 +134,7 @@
 
           global $post;
           if ($w_p_query->have_posts()) {
+          ?><input type='submit' value='Update LR Settings' class='button-primary'/><hr><?php
           ?><table style='border-collapse:collapse'><?php
             ?><tr><?php
               ?><th style='padding-right:15px;text-align:left'>LR</th><?php
