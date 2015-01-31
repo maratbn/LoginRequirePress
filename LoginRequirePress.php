@@ -122,7 +122,8 @@
         }
     ?><div class="wrap"><?php
       ?><p>Check the checkbox(es) corresponding to the post(s) for which you want to require <?php
-        ?>user login.</p><?php
+        ?>user login, then submit the form by clicking 'Update LR Settings' at the top or <?php
+        ?>bottom.</p><?php
       ?><form method='post' action='admin-post.php'><?php
         ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
           wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
