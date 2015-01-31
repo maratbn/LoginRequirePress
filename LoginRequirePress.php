@@ -140,6 +140,7 @@
           ?><table style='border-collapse:collapse'><?php
             ?><tr><?php
               ?><th style='padding-right:15px;text-align:left'>LR</th><?php
+              ?><th style='padding-right:15px;text-align:left'>ID</th><?php
               ?><th style='padding-right:15px;text-align:left'>Post Name</th><?php
               ?><th style='padding-right:15px;text-align:left'>Current LR</th><?php
               ?><th style='padding-right:15px;text-align:left'>Page Template</th><?php
@@ -158,6 +159,7 @@
                     <td><input type='checkbox' name='lock_<?=$idPost?>' <?=$isLoginRequired
                                                                            ? 'checked'
                                                                            : ""?>></td>
+                    <td><a href='<?=get_edit_post_link($idPost)?>'><?=$idPost?></a></td>
                     <td><a href='<?=get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
                     <td>
                     <?php
