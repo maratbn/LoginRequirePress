@@ -120,7 +120,9 @@
         if (!current_user_can('manage_options' ))  {
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
-    ?><div class="wrap"><form method='post' action='admin-post.php'><?php
+    ?><div class="wrap"><?php
+      ?><p>Check the checkbox(es) corresponding to the post(s) for which you want to require user login.</p><?php
+      ?><form method='post' action='admin-post.php'><?php
       ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
         wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
 
