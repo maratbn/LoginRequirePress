@@ -123,57 +123,57 @@
     ?><div class="wrap"><?php
       ?><p>Check the checkbox(es) corresponding to the post(s) for which you want to require user login.</p><?php
       ?><form method='post' action='admin-post.php'><?php
-      ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
-        wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
+        ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
+          wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
 
-        $w_p_query = new \WP_Query(['order'           => 'ASC',
-                                    'orderby'         => 'name',
-                                    'post_status'     => 'any',
-                                    'post_type'       => \get_post_types(['public' => true]),
-                                    'posts_per_page'  => -1]);
+          $w_p_query = new \WP_Query(['order'           => 'ASC',
+                                      'orderby'         => 'name',
+                                      'post_status'     => 'any',
+                                      'post_type'       => \get_post_types(['public' => true]),
+                                      'posts_per_page'  => -1]);
 
-        global $post;
-        if ($w_p_query->have_posts()) {
-        ?><table style='border-collapse:collapse'><?php
-          ?><tr><?php
-            ?><th style='padding-right:15px;text-align:left'>LR</th><?php
-            ?><th style='padding-right:15px;text-align:left'>Post Name</th><?php
-            ?><th style='padding-right:15px;text-align:left'>Current LR</th><?php
-            ?><th style='padding-right:15px;text-align:left'>Page Template</th><?php
-            ?><th style='padding-right:15px;text-align:left'>Post Status</th><?php
-          ?></tr><?php
-              $indexRow = 0;
-              while($w_p_query->have_posts()) {
-                  $w_p_query->the_post();
-                  $idPost = $post->ID;
-                  $isLoginRequired = isLoginRequiredForPost($post);
-                  $strPostName = $post->post_name;
-              ?><input type='hidden' name='post_<?=$idPost?>'><?php
-              ?><tr <?=$indexRow % 2 == 0
-                       ? 'style=\'background-color:#dde\''
-                       : ""?>>
-                  <td><input type='checkbox' name='lock_<?=$idPost?>' <?=$isLoginRequired
-                                                                         ? 'checked'
-                                                                         : ""?>></td>
-                  <td><a href='<?=get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
-                  <td>
-                  <?php
-                      if ($isLoginRequired) {
-                          echo YES;
-                      }
-                  ?>
-                  </td>
-                  <td><?=get_page_template_slug($idPost)?></td>
-                  <td><?=get_post_status($idPost)?></td>
-                </tr><?php
-                  $indexRow++;
-              }
-              wp_reset_postdata();
-        ?></table><?php
-        } else {
-        ?>No posts<?php
-        }
-    ?><hr><input type='submit' value='Update LR Settings' class='button-primary'/><?php
+          global $post;
+          if ($w_p_query->have_posts()) {
+          ?><table style='border-collapse:collapse'><?php
+            ?><tr><?php
+              ?><th style='padding-right:15px;text-align:left'>LR</th><?php
+              ?><th style='padding-right:15px;text-align:left'>Post Name</th><?php
+              ?><th style='padding-right:15px;text-align:left'>Current LR</th><?php
+              ?><th style='padding-right:15px;text-align:left'>Page Template</th><?php
+              ?><th style='padding-right:15px;text-align:left'>Post Status</th><?php
+            ?></tr><?php
+                $indexRow = 0;
+                while($w_p_query->have_posts()) {
+                    $w_p_query->the_post();
+                    $idPost = $post->ID;
+                    $isLoginRequired = isLoginRequiredForPost($post);
+                    $strPostName = $post->post_name;
+                ?><input type='hidden' name='post_<?=$idPost?>'><?php
+                ?><tr <?=$indexRow % 2 == 0
+                         ? 'style=\'background-color:#dde\''
+                         : ""?>>
+                    <td><input type='checkbox' name='lock_<?=$idPost?>' <?=$isLoginRequired
+                                                                           ? 'checked'
+                                                                           : ""?>></td>
+                    <td><a href='<?=get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
+                    <td>
+                    <?php
+                        if ($isLoginRequired) {
+                            echo YES;
+                        }
+                    ?>
+                    </td>
+                    <td><?=get_page_template_slug($idPost)?></td>
+                    <td><?=get_post_status($idPost)?></td>
+                  </tr><?php
+                    $indexRow++;
+                }
+                wp_reset_postdata();
+          ?></table><?php
+          } else {
+          ?>No posts<?php
+          }
+      ?><hr><input type='submit' value='Update LR Settings' class='button-primary'/><?php
     ?></form></div><?php
     }
 
