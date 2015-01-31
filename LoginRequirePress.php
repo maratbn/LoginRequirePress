@@ -170,10 +170,10 @@
                 }
                 wp_reset_postdata();
           ?></table><?php
+          ?><hr><input type='submit' value='Update LR Settings' class='button-primary'/><?php
           } else {
           ?>No posts<?php
           }
-      ?><hr><input type='submit' value='Update LR Settings' class='button-primary'/><?php
     ?></form></div><?php
     }
 
