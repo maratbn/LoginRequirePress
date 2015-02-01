@@ -68,8 +68,8 @@
 
 
     function action_admin_menu() {
-        add_options_page( 'LoginRequirePress Settings',
-                          'LoginRequirePress',
+        add_options_page( __('LoginRequirePress Settings', 'domain-plugin-LoginRequirePress'),
+                          __('LoginRequirePress', 'domain-plugin-LoginRequirePress'),
                           'manage_options',
                           'plugin_LoginRequirePress_settings',
                           '\\plugin_LoginRequirePress\\render_settings');
@@ -78,7 +78,8 @@
     function action_admin_post_plugin_LoginRequirePress_settings() {
         //  Based on: http://jaskokoyn.com/2013/03/26/wordpress-admin-forms/
         if (!current_user_can('manage_options')) {
-            wp_die('Insufficient user permissions to modify options.');
+            wp_die(__('Insufficient user permissions to modify options.',
+                      'domain-plugin-LoginRequirePress'));
         }
 
         // Check that nonce field
@@ -152,12 +153,17 @@
     function render_settings() {
         //  Based on http://codex.wordpress.org/Administration_Menus
         if (!current_user_can('manage_options' ))  {
-            wp_die(__('You do not have sufficient permissions to access this page.'));
+            wp_die(__('You do not have sufficient permissions to access this page.',
+                      'domain-plugin-LoginRequirePress'));
         }
     ?><div class="wrap"><?php
-      ?><p>Check the checkbox(es) corresponding to the post(s) for which you want to require <?php
-        ?>user login, then submit the form by clicking 'Update LR Settings' at the top or <?php
-        ?>bottom.</p><?php
+      ?><p><?=sprintf(
+        __('Check the checkbox(es) corresponding to the post(s) for which you want to require ' .
+           'user login, then submit the form by clicking \'%1$s\' at the top or bottom.',
+           'domain-plugin-LoginRequirePress'),
+        __('Update LR Settings',
+           'domain-plugin-LoginRequirePress'));
+             ?></p><?php
       ?><form method='post' action='admin-post.php'><?php
         ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
           wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
@@ -170,16 +176,32 @@
 
           global $post;
           if ($w_p_query->have_posts()) {
-          ?><input type='submit' value='Update LR Settings' class='button-primary'/><hr><?php
+          ?><input type='submit' value='<?=__('Update LR Settings',
+                                              'domain-plugin-LoginRequirePress')
+                                          ?>' class='button-primary'/><hr><?php
           ?><table style='border-collapse:collapse'><?php
             ?><tr><?php
-              ?><th style='padding-right:15px;text-align:left'>LR</th><?php
-              ?><th style='padding-right:15px;text-align:left'>Current LR</th><?php
-              ?><th style='padding-right:15px;text-align:left'>ID</th><?php
-              ?><th style='padding-right:15px;text-align:left'>Post Name</th><?php
-              ?><th style='padding-right:15px;text-align:left'>Post Type</th><?php
-              ?><th style='padding-right:15px;text-align:left'>Page Template</th><?php
-              ?><th style='padding-right:15px;text-align:left'>Post Status</th><?php
+              ?><th style='padding-right:15px;text-align:left'><?=
+                __('LR', 'domain-plugin-LoginRequirePress')
+              ?></th><?php
+              ?><th style='padding-right:15px;text-align:left'><?=
+                __('Current LR', 'domain-plugin-LoginRequirePress')
+              ?></th><?php
+              ?><th style='padding-right:15px;text-align:left'><?=
+                __('ID', 'domain-plugin-LoginRequirePress')
+              ?></th><?php
+              ?><th style='padding-right:15px;text-align:left'><?=
+                __('Post Name', 'domain-plugin-LoginRequirePress')
+              ?></th><?php
+              ?><th style='padding-right:15px;text-align:left'><?=
+                __('Post Type', 'domain-plugin-LoginRequirePress')
+              ?></th><?php
+              ?><th style='padding-right:15px;text-align:left'><?=
+                __('Page Template', 'domain-plugin-LoginRequirePress')
+              ?></th><?php
+              ?><th style='padding-right:15px;text-align:left'><?=
+                __('Post Status', 'domain-plugin-LoginRequirePress')
+              ?></th><?php
             ?></tr><?php
                 $indexRow = 0;
                 while($w_p_query->have_posts()) {
@@ -211,9 +233,11 @@
                 }
                 wp_reset_postdata();
           ?></table><?php
-          ?><hr><input type='submit' value='Update LR Settings' class='button-primary'/><?php
+          ?><hr><input type='submit' value='<?=__('Update LR Settings',
+                                                  'domain-plugin-LoginRequirePress')
+                                              ?>' class='button-primary'/><?php
           } else {
-          ?>No posts<?php
+          ?><?=__('No posts', 'domain-plugin-LoginRequirePress')?><?php
           }
       ?></form></div><?php
     }
