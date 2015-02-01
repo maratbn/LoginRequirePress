@@ -2,7 +2,7 @@
 /*
   Plugin Name: LoginRequirePress
   Plugin URI: http://www.maratbn.com/
-  Description: WordPress plugin that allows site administrators to selectively require user login to view a specific page or post, thereby preventing unregistered site visitors from reading the corresponding page content, limiting access only to registered users with subscriber roles and above.
+  Description: WordPress plugin that allows site administrators to selectively require user login to view a specific page or post, thereby preventing unregistered site visitors from reading the corresponding page content, limiting access only to registered users with subscriber roles and above.  Plugin also filters out the selected posts from the site's feeds.
   Author: Marat Nepomnyashy
   Author URI: http://www.maratbn.com
   License: GPL3
@@ -15,7 +15,8 @@
                        or post, thereby preventing unregistered site visitors
                        from reading the corresponding page content, limiting
                        access only to registered users with subscriber roles
-                       and above.
+                       and above.  Plugin also filters out the selected posts
+                       from the site's feeds.
 
   Copyright (C) 2015  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
 

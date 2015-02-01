@@ -3,7 +3,8 @@
                        or post, thereby preventing unregistered site visitors
                        from reading the corresponding page content, limiting
                        access only to registered users with subscriber roles
-                       and above.
+                       and above.  Plugin also filters out the selected posts
+                       from the site's feeds.
 
   Copyright (C) 2015  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
 
