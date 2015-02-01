@@ -100,7 +100,7 @@
             }
         }
 
-        wp_redirect(admin_url('options-general.php?page=plugin_LoginRequirePress_settings'));
+        wp_redirect(getUrlSettings());
         exit();
     }
 
@@ -132,9 +132,8 @@
 
     function filter_plugin_action_links($arrLinks) {
         array_push($arrLinks,
-                   '<a href=\''
-                     . admin_url('options-general.php?page=plugin_LoginRequirePress_settings')
-                     . '\'>' . __('Settings', 'domain-plugin-LoginRequirePress') . '</a>');
+                   '<a href=\'' . getUrlSettings() . '\'>'
+                                    . __('Settings', 'domain-plugin-LoginRequirePress') . '</a>');
         return $arrLinks;
     }
 
@@ -153,6 +152,10 @@
         }
 
         return $arrPostsFiltered;
+    }
+
+    function getUrlSettings() {
+        return admin_url('options-general.php?page=plugin_LoginRequirePress_settings');
     }
 
     function isLoginRequiredForPost(&$post) {
