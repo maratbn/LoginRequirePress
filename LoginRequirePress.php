@@ -107,6 +107,11 @@
         global $wp;
         $w_p_query = new \WP_Query($wp->query_vars);
 
+        //  Feed pages will obviously contain any login-requiring posts; however, as it would be
+        //  undesirable to completely deny access to all the feed pages, the login-requiring
+        //  posts will be filtered out from inside each feed by the filter hook 'posts_results'.
+        if ($w_p_query->is_feed) return;
+
         global $post;
         if ($w_p_query->have_posts()) {
             while($w_p_query->have_posts()) {
