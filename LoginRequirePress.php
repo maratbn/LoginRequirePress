@@ -104,6 +104,7 @@
 
     function action_send_headers() {
 
+        //  No need to redirect to the login page if the user is already logged in.
         if (is_user_logged_in()) return;
 
         global $wp;
