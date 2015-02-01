@@ -10,8 +10,9 @@
                        only to logged-in users with subscriber roles and
                        above.
 
-                       Plugin also filters out these login-requiring posts
-                       from the site's feeds.
+                       Plugin will still allow unauthenticated downloading of
+                       site's feeds, but will filter out any login-requiring
+                       posts from the feed listings.
 
   Copyright (C) 2015  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
 
