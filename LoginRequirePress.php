@@ -2,7 +2,7 @@
 /*
   Plugin Name: LoginRequirePress
   Plugin URI: http://www.maratbn.com/
-  Description: WordPress plugin that allows site administrators to specifically designate arbitrary posts with any public post type as viewable only after user login.  Unauthenticated site visitors attempting to view any page that includes such specifically designated posts will then be automatically redirected to the login page, thereby limiting access only to logged-in users with subscriber roles and above.  Plugin also filters out these login-requiring posts from the site's feeds.
+  Description: WordPress plugin that allows site administrators to specifically designate arbitrary posts with any public post type as viewable only after user login.  Unauthenticated site visitors attempting to view any page that includes any such specifically designated post will then be automatically redirected to the site's default login page, and then back to the original page after they login, thereby limiting access only to logged-in users with subscriber roles and above.  Plugin also filters out these login-requiring posts from the site's feeds.
   Author: Marat Nepomnyashy
   Author URI: http://www.maratbn.com
   License: GPL3
@@ -16,10 +16,12 @@
                        post type as viewable only after user login.
 
                        Unauthenticated site visitors attempting to view any
-                       page that includes such specifically designated posts
-                       will then be automatically redirected to the login page,
-                       thereby limiting access only to logged-in users with
-                       subscriber roles and above.
+                       page that includes any such specifically designated
+                       post will then be automatically redirected to the
+                       site's default login page, and then back to the
+                       original page after they login, thereby limiting access
+                       only to logged-in users with subscriber roles and
+                       above.
 
                        Plugin also filters out these login-requiring posts
                        from the site's feeds.
