@@ -7,6 +7,7 @@
   Author URI: http://www.maratbn.com
   License: GPL3
   Version: 0.0.1-development_unreleased
+  Text Domain: domain-plugin-LoginRequirePress
 */
 
 /*
