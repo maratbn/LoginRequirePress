@@ -2,7 +2,7 @@
 /*
   Plugin Name: LoginRequirePress
   Plugin URI: http://www.maratbn.com/
-  Description: WordPress plugin that allows site administrators to selectively require user login to view any page that includes a specific post with any public post type, thereby preventing unregistered site visitors from reading all the content on that page, limiting access only to registered users with subscriber roles and above.  Plugin also filters out the selected posts from the site's feeds.
+  Description: WordPress plugin that allows site administrators to specifically designate arbitrary posts with any public post type as viewable only after user login.  Unauthenticated site visitors attempting to view any page that includes such specifically designated posts will then be automatically redirected to the login page, thereby limiting access only to logged-in users with subscriber roles and above.  Plugin also filters out these login-requiring posts from the site's feeds.
   Author: Marat Nepomnyashy
   Author URI: http://www.maratbn.com
   License: GPL3
@@ -12,13 +12,17 @@
 
 /*
   LoginRequirePress -- WordPress plugin that allows site administrators to
-                       selectively require user login to view any page that
-                       includes a specific post with any public post type,
-                       thereby preventing unregistered site visitors from
-                       reading all the content on that page, limiting access
-                       only to registered users with subscriber roles and
-                       above.  Plugin also filters out the selected posts from
-                       the site's feeds.
+                       specifically designate arbitrary posts with any public
+                       post type as viewable only after user login.
+
+                       Unauthenticated site visitors attempting to view any
+                       page that includes such specifically designated posts
+                       will then be automatically redirected to the login page,
+                       thereby limiting access only to logged-in users with
+                       subscriber roles and above.
+
+                       Plugin also filters out these login-requiring posts
+                       from the site's feeds.
 
   Copyright (C) 2015  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
 
