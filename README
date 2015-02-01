@@ -1,0 +1,37 @@
+--------------------  WordPress plugin LoginRequirePress  --------------------
+
+Copyright (C) 2015  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
+
+Version: 0.0.1-development_unreleased
+
+Licensed under GPL3.  See LICENSE.
+
+Overview:
+
+  At the time of this writing, the latest version of WordPress, version 4.1,
+  has 3 post visibility options, which are 'public', 'password protected', and
+  'private'.
+
+  The 'password protected' option allows the site administrator to
+  individually lock certain posts, even from the logged in users, with an
+  additional password.  However, there is currently no built-in way to just
+  deny access only to the unauthenticated users.
+
+  LoginRequirePress is a WordPress plugin that allows site administrators to
+  specifically designate arbitrary posts with any public post type as viewable
+  only after user login.
+
+  Unauthenticated site visitors attempting to view any page that includes any
+  such specifically designated post will then be automatically redirected to
+  the site's default login page, and then back to the original page after they
+  login, thereby limiting access only to logged-in users with subscriber roles
+  and above.
+
+  Plugin will still allow unauthenticated downloading of site's feeds, but
+  will filter out any login-requiring posts from the feed listings.
+
+  Plugin works by hooking-in special logic into the action 'send_headers' to
+  redirect unauthenticated client browsers to the site's login page from any
+  non-feed page upon detecting any login-requiring post, and by hooking-in
+  another special logic into the filter 'posts_results' to filter out any
+  login-requiring posts from the listing.
