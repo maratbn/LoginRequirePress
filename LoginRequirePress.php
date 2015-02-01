@@ -64,6 +64,8 @@
                '\\plugin_LoginRequirePress\\action_admin_post_plugin_LoginRequirePress_settings');
     add_action('send_headers', '\\plugin_LoginRequirePress\\action_send_headers');
 
+    add_filter('plugin_action_links_' . plugin_basename(__FILE__),
+                                        '\\plugin_LoginRequirePress\\filter_plugin_action_links');
     add_filter('posts_results', '\\plugin_LoginRequirePress\\filter_posts_results');
 
 
@@ -126,6 +128,14 @@
             }
             wp_reset_postdata();
         }
+    }
+
+    function filter_plugin_action_links($arrLinks) {
+        array_push($arrLinks,
+                   '<a href=\''
+                     . admin_url('options-general.php?page=plugin_LoginRequirePress_settings')
+                     . '\'>' . __('Settings', 'domain-plugin-LoginRequirePress') . '</a>');
+        return $arrLinks;
     }
 
     function filter_posts_results($arrPosts) {
