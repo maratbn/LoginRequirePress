@@ -54,6 +54,8 @@
                '\\plugin_LoginRequirePress\\action_admin_post_plugin_LoginRequirePress_settings');
     add_action('send_headers', '\\plugin_LoginRequirePress\\action_send_headers');
 
+    add_filter('posts_results', '\\plugin_LoginRequirePress\\filter_posts_results');
+
 
     function action_admin_menu() {
         add_options_page( 'LoginRequirePress Settings',
@@ -107,6 +109,23 @@
             }
             wp_reset_postdata();
         }
+    }
+
+    function filter_posts_results($arrPosts) {
+        //  This logic is intended to filter out the login-protected posts from the site feeds.
+
+        //  Busting out if the current query is not for a feed:
+        if (!\is_feed()) return $arrPosts;
+
+        $arrPostsFiltered = [];
+
+        foreach ($arrPosts as $post) {
+            if (isLoginRequiredForPost($post)) continue;
+
+            array_push($arrPostsFiltered, $post);
+        }
+
+        return $arrPostsFiltered;
     }
 
     function isLoginRequiredForPost(&$post) {
