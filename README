@@ -41,4 +41,4 @@ Technical summary:
   redirect unauthenticated client browsers to the site's login page from any
   non-feed page upon detecting any login-requiring post, and by hooking-in
   another special logic into the filter 'posts_results' to filter out any
-  login-requiring posts from the listing.
+  login-requiring posts from any feed page listing.
