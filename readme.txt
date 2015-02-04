@@ -1,5 +1,5 @@
 === LoginRequirePress ===
-Contributors: maratbn.com
+Contributors: maratbn
 Tags: require login, password protect, security, limit access, control access, members, visitors
 Requires at least: 3.8.1
 Tested up to: 4.1
