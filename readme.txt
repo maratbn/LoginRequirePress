@@ -32,15 +32,15 @@ Overview:
   and above.
 
   Plugin will still allow unauthenticated downloading of site's feeds, but
-  will filter out any login-requiring posts from the feed listings.
+  will filter out all login-requiring posts from the feed listings.
 
 Technical summary:
 
   Plugin works by hooking-in special logic into the action 'send_headers' to
   redirect unauthenticated client browsers to the site's login page from any
   non-feed page upon detecting any login-requiring post, and by hooking-in
-  another special logic into the filter 'posts_results' to filter out any
-  login-requiring posts from the listing.
+  another special logic into the filter 'posts_results' to filter out all
+  login-requiring posts from all feed page listings.
 
 == Installation ==
 
