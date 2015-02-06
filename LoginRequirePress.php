@@ -7,7 +7,7 @@
   Author: Marat Nepomnyashy
   Author URI: http://www.maratbn.com
   License: GPL3
-  Version: 0.1.0-development_unreleased
+  Version: 0.1.1-development_unreleased
   Text Domain: domain-plugin-LoginRequirePress
 */
 
@@ -33,7 +33,7 @@
 
   Copyright (C) 2015  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
 
-  Version:        0.1.0-development_unreleased
+  Version:        0.1.1-development_unreleased
 
   Module:         LoginRequirePress.php
 
