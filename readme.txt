@@ -49,6 +49,10 @@ Technical summary:
 
 == Frequently Asked Questions ==
 
+= Where can I ask a question about LoginRequirePress? =
+
+Ask your questions at: https://wordpress.org/support/plugin/loginrequirepress
+
 == Screenshots ==
 
 1. LoginRequirePress configuration screen.
