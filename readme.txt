@@ -53,6 +53,10 @@ Technical summary:
 
 Ask your questions at: https://wordpress.org/support/plugin/loginrequirepress
 
+= Where can I post an issue / bug / feature request? =
+
+Post issues / bugs / feature requests at: https://github.com/maratbn/LoginRequirePress/issues
+
 == Screenshots ==
 
 1. LoginRequirePress configuration screen.
