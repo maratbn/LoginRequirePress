@@ -51,7 +51,7 @@ Official project URLs:
 
 == Installation ==
 
-1. Save `loginrequirepress.zip` in the `/wp-content/plugins/` directory.
+1. Unzip contents of `loginrequirepress.zip` into the directory `/wp-content/plugins/loginrequirepress/`.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==
