@@ -42,6 +42,12 @@ Technical summary:
   another special logic into the filter 'posts_results' to filter out all
   login-requiring posts from all feed page listings.
 
+Official project URLs:
+
+  https://github.com/maratbn/LoginRequirePress
+  https://wordpress.org/plugins/loginrequirepress
+  http://www.maratbn.com/projects/login-require-press
+
 == Installation ==
 
 1. Save `loginrequirepress.zip` in the `/wp-content/plugins/` directory.
