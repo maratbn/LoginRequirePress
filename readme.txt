@@ -44,8 +44,8 @@ Technical summary:
 
 == Installation ==
 
-1. Upload `LoginRequirePress.zip` from the associated release branch to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
+1. Save `loginrequirepress.zip` in the `/wp-content/plugins/` directory.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==
 
