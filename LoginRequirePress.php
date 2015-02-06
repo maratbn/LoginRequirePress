@@ -29,6 +29,7 @@
                        site's feeds, but will filter out any login-requiring
                        posts from the feed listings.
 
+  https://wordpress.org/plugins/loginrequirepress
   https://github.com/maratbn/LoginRequirePress
   http://www.maratbn.com/projects/login-require-press
 
