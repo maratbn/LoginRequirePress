@@ -72,3 +72,6 @@ Post issues / bugs / feature requests at: https://github.com/maratbn/LoginRequir
 
 = 0.1.0 =
 * Initial release.
+
+= 0.1.1 =
+* Various documentation improvement.
