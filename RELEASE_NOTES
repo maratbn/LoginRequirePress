@@ -1,7 +1,8 @@
 XXXX-XX-XX  Version 0.1.2
 
-    Issue https://github.com/maratbn/LoginRequirePress/issues/3:  Filtering-out login-requiring
-    posts from search result page listings when the user is not logged in.
+    Issue https://github.com/maratbn/LoginRequirePress/issues/3:  Protecting the titles and
+    contents of login-requiring posts in search result page listings when the user is not logged
+    in.
 
     Fixed issue https://github.com/maratbn/LoginRequirePress/issues/2:  Added file 'REQUIREMENTS'.
 

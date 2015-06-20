@@ -14,8 +14,11 @@
                        site's feeds, but will filter out any login-requiring
                        posts from the feed listings.
 
-                       Plugin will filter out login-requiring posts from search
-                       result page listings when the user is not logged in.
+                       Plugin will protect the titles and contents of login-
+                       requiring posts in search result page listings when the
+                       user is not logged in.  The titles / contents will be
+                       replaced by text "[Post title / content protected by
+                       LoginRequirePress.  Login to see the title / content.]"
 
   https://wordpress.org/plugins/loginrequirepress
   https://github.com/maratbn/LoginRequirePress
