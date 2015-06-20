@@ -1,0 +1,7 @@
+LoginRequrePress requires:
+
+    Server-side environment:
+
+     * PHP version >= 5.3
+
+     * WordPress version >= 3.8.1

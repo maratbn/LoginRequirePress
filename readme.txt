@@ -78,3 +78,4 @@ Post issues / bugs / feature requests at: https://github.com/maratbn/LoginRequir
 
 = 0.1.2 =
 * Minor improvement to plugin WordPress description meta field.
+* Fixed issue https://github.com/maratbn/LoginRequirePress/issues/2:  Added file 'REQUIREMENTS'.
