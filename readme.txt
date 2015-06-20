@@ -35,13 +35,17 @@ Overview:
   Plugin will still allow unauthenticated downloading of site's feeds, but
   will filter out all login-requiring posts from the feed listings.
 
+  Plugin will filter out login-requiring posts from search result page
+  listings when the user is not logged in.
+
 Technical summary:
 
   Plugin works by hooking-in special logic into the action 'send_headers' to
   redirect unauthenticated client browsers to the site's login page from any
-  non-feed page upon detecting any login-requiring post, and by hooking-in
-  another special logic into the filter 'posts_results' to filter out all
-  login-requiring posts from all feed page listings.
+  non-feed and non-search-results page upon detecting any login-requiring post,
+  and by hooking-in another special logic into the filter 'posts_results' to
+  filter out all login-requiring posts from all feed page listings and search
+  result page listings.
 
 Official project URLs:
 
@@ -79,3 +83,5 @@ Post issues / bugs / feature requests at: https://github.com/maratbn/LoginRequir
 = 0.1.2 =
 * Minor improvement to plugin WordPress description meta field.
 * Fixed issue https://github.com/maratbn/LoginRequirePress/issues/2:  Added file 'REQUIREMENTS'.
+* Issue https://github.com/maratbn/LoginRequirePress/issues/3:  Filtering-out login-requiring posts
+  from search result page listings when the user is not logged in.

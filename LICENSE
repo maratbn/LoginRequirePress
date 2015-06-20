@@ -14,6 +14,9 @@
                        site's feeds, but will filter out any login-requiring
                        posts from the feed listings.
 
+                       Plugin will filter out login-requiring posts from search
+                       result page listings when the user is not logged in.
+
   https://wordpress.org/plugins/loginrequirepress
   https://github.com/maratbn/LoginRequirePress
   http://www.maratbn.com/projects/login-require-press
