@@ -13,7 +13,7 @@ Allows site administrators to specifically designate arbitrary posts with any pu
 
 Overview:
 
-  At the time of this writing, the latest version of WordPress, version 4.1,
+  At the time of this writing, the latest version of WordPress, version 4.2.2,
   has 3 post visibility options, which are 'public', 'password protected', and
   'private'.
 
