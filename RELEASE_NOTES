@@ -1,5 +1,7 @@
 XXXX-XX-XX  Version 0.1.2
 
+    Plugin tested up to WordPress version 4.2.2
+
     Fixed issue https://github.com/maratbn/LoginRequirePress/issues/3:  Protecting the titles and
     contents of login-requiring posts in search result page listings when the user is not logged
     in.
