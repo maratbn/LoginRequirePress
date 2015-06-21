@@ -163,7 +163,7 @@
         //  Busting out if the current query is not for a feed and not for a search result when
         //  the user is not logged in:
         $flagIsSearchNotLoggedIn = \is_search() && !\is_user_logged_in();
-        if (!\is_feed() && !$flagIsSearchNotLoggedIn) return $arrPosts;
+        if (!(\is_feed() || $flagIsSearchNotLoggedIn)) return $arrPosts;
 
         $arrPostsFiltered = [];
 
