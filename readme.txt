@@ -7,7 +7,7 @@ Stable tag: 0.1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Allows site administrators to specifically designate arbitrary posts with any public post type as viewable only after user login.
+Allows site administrators to specifically designate arbitrary posts with any public post type as viewable only after user login.  It is an easy way to require user login to view specific pages / posts.
 
 == Description ==
 
@@ -25,6 +25,8 @@ Overview:
   LoginRequirePress is a WordPress plugin that allows site administrators to
   specifically designate arbitrary posts with any public post type as viewable
   only after user login.
+
+  It is an easy way to require user login to view specific pages / posts.
 
   Unauthenticated site visitors attempting to view any page that includes any
   such specifically designated post will then be automatically redirected to
