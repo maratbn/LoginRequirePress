@@ -7,7 +7,7 @@ Stable tag: 0.1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Allows site administrators to specifically designate arbitrary posts with any public post type as viewable only after user login.  It is an easy way to require user login to view specific pages / posts.
+Easy way to require user login to view specific pages / posts.
 
 == Description ==
 
