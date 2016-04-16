@@ -83,6 +83,8 @@ Post issues / bugs / feature requests at: https://github.com/maratbn/LoginRequir
 * Version incremented to 1.0.0 to signify public release.
 * Tested up to WordPress 4.5
 * Login Required status indicators now in red.
+* Added new 'Default Visibility' column, that indicates posts' present visibility according to the
+  default WordPress logic without this plugin.
 
 = 0.1.2 =
 * Minor improvement to plugin WordPress description meta field.
