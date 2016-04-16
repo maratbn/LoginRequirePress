@@ -258,6 +258,7 @@
                     $isLoginRequired = isLoginRequiredForPost($post);
                     $strPostName = $post->post_name;
                     $strPostStatus = \get_post_status($idPost);
+                    $isPrivate = ($strPostStatus == 'private');
                 ?><input type='hidden' name='post_<?=$idPost?>'><?php
                 ?><tr <?=$indexRow % 2 == 0
                          ? 'style=\'background-color:#dde\''
@@ -278,7 +279,7 @@
                     <td><a href='<?=\get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
                     <td><?=$post->post_type?></td>
                     <td><?=\get_page_template_slug($idPost)?></td>
-                    <td style='<?=($strPostStatus == 'private') ? 'color:red' : "" ?>'>
+                    <td style='<?=$isPrivate ? 'color:red' : "" ?>'>
                       <?=$strPostStatus?>
                     </td>
                   </tr><?php
