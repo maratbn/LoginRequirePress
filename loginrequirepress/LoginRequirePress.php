@@ -278,7 +278,9 @@
                     <td><a href='<?=\get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
                     <td><?=$post->post_type?></td>
                     <td><?=\get_page_template_slug($idPost)?></td>
-                    <td><?=$strPostStatus?></td>
+                    <td>
+                      <?=$strPostStatus?>
+                    </td>
                   </tr><?php
                     $indexRow++;
                 }
