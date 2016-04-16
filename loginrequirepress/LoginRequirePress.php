@@ -267,7 +267,7 @@
                     <td>
                     <?php
                         if ($isLoginRequired) {
-                            ?><?=YES?><?php
+                            ?><?=\__(YES, 'domain-plugin-LoginRequirePress')?><?php
                         }
                     ?>
                     </td>
