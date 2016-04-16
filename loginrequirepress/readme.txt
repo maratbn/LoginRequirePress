@@ -81,6 +81,7 @@ Post issues / bugs / feature requests at: https://github.com/maratbn/LoginRequir
 
 = 1.0.0 =
 * Version incremented to 1.0.0 to signify public release.
+* Tested up to WordPress 4.5
 
 = 0.1.2 =
 * Minor improvement to plugin WordPress description meta field.
