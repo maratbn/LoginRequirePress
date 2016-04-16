@@ -250,6 +250,9 @@
               ?><th style='padding-right:15px;text-align:left'><?=
                 \__('Post Status', 'domain-plugin-LoginRequirePress')
               ?></th><?php
+              ?><th style='padding-right:15px;text-align:left'><?=
+                \__('Default Visibility', 'domain-plugin-LoginRequirePress')
+              ?></th><?php
             ?></tr><?php
                 $indexRow = 0;
                 while($w_p_query->have_posts()) {
@@ -259,6 +262,12 @@
                     $strPostName = $post->post_name;
                     $strPostStatus = \get_post_status($idPost);
                     $isPrivate = ($strPostStatus == 'private');
+                    $strVisibility = $isPrivate ? \__('Private', 'domain-plugin-LoginRequirePress')
+                                                : \__('Public', 'domain-plugin-LoginRequirePress');
+                    $isPasscodeProtected = ($post->post_password != null);
+                    if ($isPasscodeProtected) {
+                        $strVisibility = \__('Password protected');
+                    }
                 ?><input type='hidden' name='post_<?=$idPost?>'><?php
                 ?><tr <?=$indexRow % 2 == 0
                          ? 'style=\'background-color:#dde\''
@@ -281,6 +290,9 @@
                     <td><?=\get_page_template_slug($idPost)?></td>
                     <td style='<?=$isPrivate ? 'color:red' : "" ?>'>
                       <?=$strPostStatus?>
+                    </td>
+                    <td style='<?=$isPrivate || $isPasscodeProtected ? 'color:red' : "" ?>'>
+                      <?=$strVisibility?>
                     </td>
                   </tr><?php
                     $indexRow++;
