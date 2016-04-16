@@ -79,14 +79,14 @@ Post issues / bugs / feature requests at: https://github.com/maratbn/LoginRequir
 
 == Changelog ==
 
-= 0.1.0 =
-* Initial release.
-
-= 0.1.1 =
-* Various documentation improvement.
-
 = 0.1.2 =
 * Minor improvement to plugin WordPress description meta field.
 * Fixed issue https://github.com/maratbn/LoginRequirePress/issues/2:  Added file 'REQUIREMENTS'.
 * Fixed issue https://github.com/maratbn/LoginRequirePress/issues/3:  Protecting the titles and
   contents of login-requiring posts in search result page listings when the user is not logged in.
+
+= 0.1.1 =
+* Various documentation improvement.
+
+= 0.1.0 =
+* Initial release.
