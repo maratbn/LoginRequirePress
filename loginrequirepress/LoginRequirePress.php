@@ -267,7 +267,7 @@
                     <td>
                     <?php
                         if ($isLoginRequired) {
-                            echo YES;
+                            ?><?=YES?><?php
                         }
                     ?>
                     </td>
