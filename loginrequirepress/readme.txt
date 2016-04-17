@@ -89,7 +89,8 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 
 == Screenshots ==
 
-1. LoginRequirePress configuration screen.
+1. LoginRequirePress configuration screen with the table used to specify which posts are to be
+   login-protected.
 
 == Changelog ==
 
