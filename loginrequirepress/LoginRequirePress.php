@@ -71,6 +71,8 @@
     namespace plugin_LoginRequirePress;
 
 
+    const PHP_VERSION_MIN_SUPPORTED = '5.4';
+
     const LOGIN_REQUIRE_PRESS     = 'login_require_press';
     const YES                     = 'yes';
 
@@ -82,6 +84,8 @@
     \add_filter('plugin_action_links_' . \plugin_basename(__FILE__),
                                         '\\plugin_LoginRequirePress\\filter_plugin_action_links');
     \add_filter('posts_results', '\\plugin_LoginRequirePress\\filter_posts_results');
+
+    \register_activation_hook(__FILE__, '\\plugin_LoginRequirePress\\plugin_activation_hook');
 
 
     function action_admin_menu() {
@@ -196,6 +200,15 @@
         return (\strcasecmp(YES, \get_post_meta($post->ID,
                                                 LOGIN_REQUIRE_PRESS,
                                                 true)) == 0);
+    }
+
+    function plugin_activation_hook() {
+         if (\version_compare(\strtolower(PHP_VERSION), PHP_VERSION_MIN_SUPPORTED, '<')) {
+            \wp_die(
+                \sprintf(\__('LoginRequirePress plugin cannot be activated because the currently active PHP version on this server is < %s and not supported.  PHP version >= %s is required.',
+                             'domain-plugin-LoginRequirePress'),
+                         PHP_VERSION_MIN_SUPPORTED));
+        }
     }
 
     function render_settings() {
