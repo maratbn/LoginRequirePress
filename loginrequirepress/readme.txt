@@ -105,6 +105,7 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
   default WordPress logic without this plugin.
 * Explicitly listing-out the Private, Login-Protected, and Passcode/Password-Protected posts.
 * Added plugin activation check for PHP version >= 5.4
+* Revised screenshot 1 to display the latest UI, and added screenshot 2.
 
 = 0.1.2 =
 * Minor improvement to plugin WordPress description meta field.
