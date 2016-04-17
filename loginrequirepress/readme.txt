@@ -52,6 +52,8 @@ Technical summary:
   protect the titles and contents of login-requiring posts in search result
   page listings.
 
+  Login-requiring posts are marked with a custom field 'login_require_press' set to 'yes'.
+
 Official project URLs:
 
   https://github.com/maratbn/LoginRequirePress
