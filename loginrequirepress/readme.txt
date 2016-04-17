@@ -13,7 +13,7 @@ Easy way to require user login to view specific pages / posts.
 
 Overview:
 
-  At the time of this writing, the latest version of WordPress, version 4.2.2,
+  At the time of this writing, the latest version of WordPress, version 4.5,
   has 3 post visibility options, which are 'public', 'password protected', and
   'private'.
 
