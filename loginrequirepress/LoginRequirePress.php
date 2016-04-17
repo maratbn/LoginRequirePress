@@ -307,7 +307,8 @@
           ?></table><?php
           ?><hr><input type='submit' value='<?=\__('Update LR Settings',
                                                    'domain-plugin-LoginRequirePress')
-                                              ?>' class='button-primary'/><?php
+                                              ?>' class='button-primary'<?php
+                                               ?> style='margin-bottom:3em'/><?php
 
               if (\count($arrPrivate) > 0) {
                   ?><hr><?php
