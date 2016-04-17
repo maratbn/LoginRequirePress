@@ -65,6 +65,14 @@ Official project URLs:
 
 == Frequently Asked Questions ==
 
+= What do I do if I get this error "Plugin could not be activated because it triggered a fatal error." when trying to activate? =
+
+Upgrade to PHP >= 5.4  See
+https://wordpress.org/support/topic/crashes-on-activate
+
+Make sure to check your PHP version with
+https://wordpress.org/plugins/display-php-version/
+
 = Where can I ask a question about LoginRequirePress? =
 
 Ask your questions at: https://wordpress.org/support/plugin/loginrequirepress
@@ -72,6 +80,10 @@ Ask your questions at: https://wordpress.org/support/plugin/loginrequirepress
 = Where can I post an issue / bug / feature request? =
 
 Post issues / bugs / feature requests at: https://github.com/maratbn/LoginRequirePress/issues
+
+= Plugin is missing feature X that I really want, what do I do? =
+
+Post a bug / feature request, or implement the feature at your leisure, and submit a pull request.
 
 == Screenshots ==
 
