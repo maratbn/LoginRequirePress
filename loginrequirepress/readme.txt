@@ -92,6 +92,9 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 1. LoginRequirePress configuration screen with the table used to specify which posts are to be
    login-protected.
 
+2. LoginRequirePress configuration screen with the lists of private, non-private login-protected,
+   and passcode-protected posts.
+
 == Changelog ==
 
 = 1.0.0 =
