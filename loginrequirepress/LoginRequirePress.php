@@ -224,6 +224,7 @@
 
           global $post;
           if ($w_p_query->have_posts()) {
+              $arrNonPrivateLoginProtected = [];
               $arrPrivate = [];
               $arrPasscodeProtected = [];
           ?><input type='submit' value='<?=\__('Update LR Settings',
@@ -274,6 +275,8 @@
 
                     if ($isPrivate) {
                         \array_push($arrPrivate, $post);
+                    } else if ($isLoginRequired) {
+                        \array_push($arrNonPrivateLoginProtected, $post);
                     }
                     if ($isPasscodeProtected) {
                         \array_push($arrPasscodeProtected, $post);
@@ -313,6 +316,27 @@
                                                    'domain-plugin-LoginRequirePress')
                                               ?>' class='button-primary'<?php
                                                ?> style='margin-bottom:3em'/><?php
+
+              if (\count($arrNonPrivateLoginProtected) > 0) {
+                  ?><hr><?php
+                  ?><h3><?php
+                    ?><?=\__('Non-private login-protected post(s):',
+                             'domain-plugin-LoginRequirePress')?><?php
+                  ?></h3><?php
+                  ?><i><?php
+                    ?><?=\__('These posts will require user login to see.  These settings are modified in the table above.',
+                             'domain-plugin-LoginRequirePress')?><?php
+                  ?></i><?php
+                  ?><ul><?php
+                  foreach ($arrNonPrivateLoginProtected as $postLoginProtected) {
+                      ?><li><?php
+                        ?><a href='<?=\get_edit_post_link($postLoginProtected->ID)?>'><?php
+                          ?><?=$postLoginProtected->post_name?><?php
+                        ?></a><?php
+                      ?></li><?php
+                  }
+                  ?></ul><?php
+              }
 
               if (\count($arrPrivate) > 0) {
                   ?><hr><?php
