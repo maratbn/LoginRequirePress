@@ -345,7 +345,7 @@
                              'domain-plugin-LoginRequirePress')?><?php
                   ?></h3><?php
                   ?><i><?php
-                    ?><?=\__('These posts will require user login to see.  These settings can be modified in the table above.',
+                    ?><?=\__('These posts will require user login to see, but all logged-in users will be able to see them, hence they\'re not "private".  These settings can be modified in the table above.',
                              'domain-plugin-LoginRequirePress')?><?php
                   ?></i><?php
                   ?><ul><?php
