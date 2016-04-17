@@ -261,6 +261,7 @@
                     $idPost = $post->ID;
                     $isLoginRequired = isLoginRequiredForPost($post);
                     $strPostName = $post->post_name;
+                    $urlPostEdit = \get_edit_post_link($idPost);
                     $strPostStatus = \get_post_status($idPost);
                     $isPrivate = ($strPostStatus == 'private');
                     $strVisibility = $isPrivate ? \__('Private', 'domain-plugin-LoginRequirePress')
@@ -289,8 +290,8 @@
                         }
                     ?>
                     </td>
-                    <td><a href='<?=\get_edit_post_link($idPost)?>'><?=$idPost?></a></td>
-                    <td><a href='<?=\get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
+                    <td><a href='<?=$urlPostEdit?>'><?=$idPost?></a></td>
+                    <td><a href='<?=$urlPostEdit?>'><?=$strPostName?></a></td>
                     <td><?=$post->post_type?></td>
                     <td><?=\get_page_template_slug($idPost)?></td>
                     <td style='<?=$isPrivate ? 'color:red' : "" ?>'>
