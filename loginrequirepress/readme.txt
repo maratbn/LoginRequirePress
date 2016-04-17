@@ -86,6 +86,7 @@ Post issues / bugs / feature requests at: https://github.com/maratbn/LoginRequir
 * Added new 'Default Visibility' column, that indicates posts' present visibility according to the
   default WordPress logic without this plugin.
 * Explicitly listing-out the Private, Login-Protected, and Passcode/Password-Protected posts.
+* Added plugin activation check for PHP version >= 5.4
 
 = 0.1.2 =
 * Minor improvement to plugin WordPress description meta field.
