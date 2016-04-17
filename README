@@ -54,3 +54,6 @@ Technical summary:
   filter out all login-requiring posts from all feed page listings, and to
   protect the titles and contents of login-requiring posts in search result
   page listings.
+
+  Login-requiring posts are marked with a custom field 'login_require_press'
+  set to 'yes'.
