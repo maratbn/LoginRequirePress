@@ -225,6 +225,7 @@
           global $post;
           if ($w_p_query->have_posts()) {
               $arrPrivate = [];
+              $arrPasscodeProtected = [];
           ?><input type='submit' value='<?=\__('Update LR Settings',
                                                'domain-plugin-LoginRequirePress')
                                           ?>' class='button-primary'/><hr><?php
@@ -273,6 +274,9 @@
 
                     if ($isPrivate) {
                         \array_push($arrPrivate, $post);
+                    }
+                    if ($isPasscodeProtected) {
+                        \array_push($arrPasscodeProtected, $post);
                     }
                 ?><input type='hidden' name='post_<?=$idPost?>'><?php
                 ?><tr <?=$indexRow % 2 == 0
@@ -325,6 +329,27 @@
                       ?><li><?php
                         ?><a href='<?=\get_edit_post_link($postPrivate->ID)?>'><?php
                           ?><?=$postPrivate->post_name?><?php
+                        ?></a><?php
+                      ?></li><?php
+                  }
+                  ?></ul><?php
+              }
+
+              if (\count($arrPasscodeProtected) > 0) {
+                  ?><hr><?php
+                  ?><h3><?php
+                    ?><?=\__('Passcode-protected post(s):',
+                             'domain-plugin-LoginRequirePress')?><?php
+                  ?></h3><?php
+                  ?><i><?php
+                    ?><?=\__('Also known as the WordPress "Password Protected" posts, but different from login-protected.  The content of any of these posts will be invisible to the public, as well as to any logged-in users, until they enter a special post-only passcode / password, previously chosen in the Post Visibility section of each of these posts\' edit pages.  Any post that is both login protected and "Password Protected" will require user login, and then the entry of the additional post-only passcode to see its content.',
+                             'domain-plugin-LoginRequirePress')?><?php
+                  ?></i><?php
+                  ?><ul><?php
+                  foreach ($arrPasscodeProtected as $postPasscodeProtected) {
+                      ?><li><?php
+                        ?><a href='<?=\get_edit_post_link($postPasscodeProtected->ID)?>'><?php
+                          ?><?=$postPasscodeProtected->post_name?><?php
                         ?></a><?php
                       ?></li><?php
                   }
