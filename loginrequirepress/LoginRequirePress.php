@@ -224,6 +224,7 @@
 
           global $post;
           if ($w_p_query->have_posts()) {
+              $arrPrivate = [];
           ?><input type='submit' value='<?=\__('Update LR Settings',
                                                'domain-plugin-LoginRequirePress')
                                           ?>' class='button-primary'/><hr><?php
@@ -268,6 +269,10 @@
                     if ($isPasscodeProtected) {
                         $strVisibility = \__('Password protected');
                     }
+
+                    if ($isPrivate) {
+                        \array_push($arrPrivate, $post);
+                    }
                 ?><input type='hidden' name='post_<?=$idPost?>'><?php
                 ?><tr <?=$indexRow % 2 == 0
                          ? 'style=\'background-color:#dde\''
@@ -302,6 +307,27 @@
           ?><hr><input type='submit' value='<?=\__('Update LR Settings',
                                                    'domain-plugin-LoginRequirePress')
                                               ?>' class='button-primary'/><?php
+
+              if (\count($arrPrivate) > 0) {
+                  ?><hr><?php
+                  ?><h3><?php
+                    ?><?=\__('Private post(s):',
+                             'domain-plugin-LoginRequirePress')?><?php
+                  ?></h3><?php
+                  ?><i><?php
+                    ?><?=\__('These posts are invisible to the public, as well as to the logged-in Subscribers, Contributors, and other Authors.  Post visibility can be edited on each post\'s edit page.',
+                             'domain-plugin-LoginRequirePress')?><?php
+                  ?></i><?php
+                  ?><ul><?php
+                  foreach ($arrPrivate as $postPrivate) {
+                      ?><li><?php
+                        ?><a href='<?=\get_edit_post_link($postPrivate->ID)?>'><?php
+                          ?><?=$postPrivate->post_name?><?php
+                        ?></a><?php
+                      ?></li><?php
+                  }
+                  ?></ul><?php
+              }
           } else {
           ?><?=\__('No posts', 'domain-plugin-LoginRequirePress')?><?php
           }
