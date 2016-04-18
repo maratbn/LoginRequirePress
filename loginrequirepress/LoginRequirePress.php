@@ -211,8 +211,9 @@
     function plugin_activation_hook() {
          if (\version_compare(\strtolower(\PHP_VERSION), PHP_VERSION_MIN_SUPPORTED, '<')) {
             \wp_die(
-                \sprintf(\__('LoginRequirePress plugin cannot be activated because the currently active PHP version on this server is < %s and not supported.  PHP version >= %s is required.',
+                \sprintf(\__('LoginRequirePress plugin cannot be activated because the currently active PHP version on this server is %s < %s and not supported.  PHP version >= %s is required.',
                              'domain-plugin-LoginRequirePress'),
+                         \PHP_VERSION,
                          PHP_VERSION_MIN_SUPPORTED,
                          PHP_VERSION_MIN_SUPPORTED));
         }
