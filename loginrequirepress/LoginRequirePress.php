@@ -76,16 +76,22 @@
     const LOGIN_REQUIRE_PRESS     = 'login_require_press';
     const YES                     = 'yes';
 
-    \add_action('admin_menu', '\\plugin_LoginRequirePress\\action_admin_menu');
-    \add_action('admin_post_plugin_LoginRequirePress_settings',
-                '\\plugin_LoginRequirePress\\action_admin_post_plugin_LoginRequirePress_settings');
+
     \add_action('send_headers', '\\plugin_LoginRequirePress\\action_send_headers');
 
-    \add_filter('plugin_action_links_' . \plugin_basename(__FILE__),
-                '\\plugin_LoginRequirePress\\filter_plugin_action_links');
     \add_filter('posts_results', '\\plugin_LoginRequirePress\\filter_posts_results');
 
-    \register_activation_hook(__FILE__, '\\plugin_LoginRequirePress\\plugin_activation_hook');
+
+    if (\is_admin()) {
+        \register_activation_hook(__FILE__, '\\plugin_LoginRequirePress\\plugin_activation_hook');
+
+        \add_action('admin_menu', '\\plugin_LoginRequirePress\\action_admin_menu');
+        \add_action('admin_post_plugin_LoginRequirePress_settings',
+                    '\\plugin_LoginRequirePress\\action_admin_post_plugin_LoginRequirePress_settings');
+
+        \add_filter('plugin_action_links_' . \plugin_basename(__FILE__),
+                    '\\plugin_LoginRequirePress\\filter_plugin_action_links');
+    }
 
 
     function action_admin_menu() {
