@@ -82,7 +82,7 @@
     \add_action('send_headers', '\\plugin_LoginRequirePress\\action_send_headers');
 
     \add_filter('plugin_action_links_' . \plugin_basename(__FILE__),
-                                        '\\plugin_LoginRequirePress\\filter_plugin_action_links');
+                '\\plugin_LoginRequirePress\\filter_plugin_action_links');
     \add_filter('posts_results', '\\plugin_LoginRequirePress\\filter_posts_results');
 
     \register_activation_hook(__FILE__, '\\plugin_LoginRequirePress\\plugin_activation_hook');
