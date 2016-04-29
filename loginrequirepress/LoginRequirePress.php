@@ -338,67 +338,44 @@
                                               ?>' class='button-primary'<?php
                                                ?> style='margin-bottom:3em'/><?php
 
+              $renderListOfPosts = function($strName, $strDesc, $arrPosts) {
+                      ?><hr><?php
+                      ?><h3><?php
+                        ?><?=\__($strName, 'domain-plugin-LoginRequirePress')?><?php
+                      ?></h3><?php
+                      ?><i><?php
+                        ?><?=\__($strDesc, 'domain-plugin-LoginRequirePress')?><?php
+                      ?></i><?php
+                      ?><ul><?php
+                      foreach ($arrPosts as $objPost) {
+                          ?><li><?php
+                            ?><a href='<?=\get_edit_post_link($objPost->ID)?>'><?php
+                              ?><?=$objPost->post_name?><?php
+                            ?></a><?php
+                          ?></li><?php
+                      }
+                      ?></ul><?php
+                  };
+
               if (\count($arrPrivate) > 0) {
-                  ?><hr><?php
-                  ?><h3><?php
-                    ?><?=\__('Private post(s):',
-                             'domain-plugin-LoginRequirePress')?><?php
-                  ?></h3><?php
-                  ?><i><?php
-                    ?><?=\__('These posts are invisible to the public, as well as to the logged-in Subscribers, Contributors, and other Authors.  Post visibility can be edited on each post\'s edit page.',
-                             'domain-plugin-LoginRequirePress')?><?php
-                  ?></i><?php
-                  ?><ul><?php
-                  foreach ($arrPrivate as $postPrivate) {
-                      ?><li><?php
-                        ?><a href='<?=\get_edit_post_link($postPrivate->ID)?>'><?php
-                          ?><?=$postPrivate->post_name?><?php
-                        ?></a><?php
-                      ?></li><?php
-                  }
-                  ?></ul><?php
+                  $renderListOfPosts(
+                      'Private post(s):',
+                      'These posts are invisible to the public, as well as to the logged-in Subscribers, Contributors, and other Authors.  Post visibility can be edited on each post\'s edit page.',
+                      $arrPrivate);
               }
 
               if (\count($arrNonPrivateLoginProtected) > 0) {
-                  ?><hr><?php
-                  ?><h3><?php
-                    ?><?=\__('Non-private login-protected post(s):',
-                             'domain-plugin-LoginRequirePress')?><?php
-                  ?></h3><?php
-                  ?><i><?php
-                    ?><?=\__('These posts will require user login to see, but all logged-in users will be able to see them, hence they\'re not "private".  The login protection can be modified in the table above.',
-                             'domain-plugin-LoginRequirePress')?><?php
-                  ?></i><?php
-                  ?><ul><?php
-                  foreach ($arrNonPrivateLoginProtected as $postLoginProtected) {
-                      ?><li><?php
-                        ?><a href='<?=\get_edit_post_link($postLoginProtected->ID)?>'><?php
-                          ?><?=$postLoginProtected->post_name?><?php
-                        ?></a><?php
-                      ?></li><?php
-                  }
-                  ?></ul><?php
+                  $renderListOfPosts(
+                      'Non-private login-protected post(s):',
+                      'These posts will require user login to see, but all logged-in users will be able to see them, hence they\'re not "private".  The login protection can be modified in the table above.',
+                      $arrNonPrivateLoginProtected);
               }
 
               if (\count($arrPasscodeProtected) > 0) {
-                  ?><hr><?php
-                  ?><h3><?php
-                    ?><?=\__('Passcode-protected post(s):',
-                             'domain-plugin-LoginRequirePress')?><?php
-                  ?></h3><?php
-                  ?><i><?php
-                    ?><?=\__('Also known as the WordPress "Password Protected" posts, but different from login-protected.  The content of any of these posts will be invisible to the public, as well as to any logged-in users, until they enter a special post-only passcode / password, previously chosen in the Post Visibility section of each of these posts\' edit pages.  Any post that is both login protected and "Password Protected" will require user login, and then the entry of the additional post-only passcode to see its content.',
-                             'domain-plugin-LoginRequirePress')?><?php
-                  ?></i><?php
-                  ?><ul><?php
-                  foreach ($arrPasscodeProtected as $postPasscodeProtected) {
-                      ?><li><?php
-                        ?><a href='<?=\get_edit_post_link($postPasscodeProtected->ID)?>'><?php
-                          ?><?=$postPasscodeProtected->post_name?><?php
-                        ?></a><?php
-                      ?></li><?php
-                  }
-                  ?></ul><?php
+                  $renderListOfPosts(
+                      'Passcode-protected post(s):',
+                      'Also known as the WordPress "Password Protected" posts, but different from login-protected.  The content of any of these posts will be invisible to the public, as well as to any logged-in users, until they enter a special post-only passcode / password, previously chosen in the Post Visibility section of each of these posts\' edit pages.  Any post that is both login protected and "Password Protected" will require user login, and then the entry of the additional post-only passcode to see its content.',
+                      $arrPasscodeProtected);
               }
           } else {
           ?><?=\__('No posts', 'domain-plugin-LoginRequirePress')?><?php
