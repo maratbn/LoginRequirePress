@@ -291,7 +291,7 @@
                                                 : \__('Public', 'domain-plugin-LoginRequirePress');
                     $isPasscodeProtected = ($post->post_password != null);
                     if ($isPasscodeProtected) {
-                        $strVisibility = \__('Password protected');
+                        $strVisibility = \__('Passcode (AKA password) protected');
                     }
 
                     if ($isPrivate) {
