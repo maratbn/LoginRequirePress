@@ -350,15 +350,19 @@
                       ?><i><?php
                         ?><?=\__($strDesc, 'domain-plugin-LoginRequirePress')?><?php
                       ?></i><?php
-                      ?><ul><?php
-                      foreach ($arrPosts as $objPost) {
-                          ?><li><?php
-                            ?><a href='<?=\get_edit_post_link($objPost->ID)?>'><?php
-                              ?><?=$objPost->post_name?><?php
-                            ?></a><?php
-                          ?></li><?php
+                      if (\count($arrPosts) == 0) {
+                          ?><p><strong>[none]</strong></p><?php
+                      } else {
+                          ?><ul><?php
+                          foreach ($arrPosts as $objPost) {
+                              ?><li><?php
+                                ?><a href='<?=\get_edit_post_link($objPost->ID)?>'><?php
+                                  ?><?=$objPost->post_name?><?php
+                                ?></a><?php
+                              ?></li><?php
+                          }
+                          ?></ul><?php
                       }
-                      ?></ul><?php
                   };
 
               if (\count($arrPrivate) > 0) {
