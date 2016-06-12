@@ -257,169 +257,169 @@
 
     ?><div class="wrap"><?php
 
-      $renderRefreshButton();
+        $renderRefreshButton();
 
-      $w_p_query = new \WP_Query(['order'           => 'ASC',
-                                  'orderby'         => 'name',
-                                  'post_status'     => 'any',
-                                  'post_type'       => \get_post_types(['public' => true]),
-                                  'posts_per_page'  => -1]);
+        $w_p_query = new \WP_Query(['order'           => 'ASC',
+                                    'orderby'         => 'name',
+                                    'post_status'     => 'any',
+                                    'post_type'       => \get_post_types(['public' => true]),
+                                    'posts_per_page'  => -1]);
 
-      if ($w_p_query->have_posts()) {
-          ?><p><?=\sprintf(
-            \__('Check the checkbox(es) corresponding to the post(s) for which you want to require ' .
-                'user login, then submit the form by clicking \'%1$s\' at the top or bottom.',
-                'domain-plugin-LoginRequirePress'),
-            \__('Update LR Settings',
-                'domain-plugin-LoginRequirePress'));
-                 ?></p><?php
-          ?><p><?=\sprintf(
-            \__('After submitting the form, make sure that any post(s) you want login-protected are ' .
-                'listed in the \'%1$s\' section below.',
-                'domain-plugin-LoginRequirePress'),
-            \__('Non-private login-protected post(s)',
-                'domain-plugin-LoginRequirePress'))
-                 ?></p><?php
-          ?><form method='post' action='admin-post.php'><?php
-            ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
-              \wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
+        if ($w_p_query->have_posts()) {
+            ?><p><?=\sprintf(
+              \__('Check the checkbox(es) corresponding to the post(s) for which you want to require ' .
+                  'user login, then submit the form by clicking \'%1$s\' at the top or bottom.',
+                  'domain-plugin-LoginRequirePress'),
+              \__('Update LR Settings',
+                  'domain-plugin-LoginRequirePress'));
+                   ?></p><?php
+            ?><p><?=\sprintf(
+              \__('After submitting the form, make sure that any post(s) you want login-protected are ' .
+                  'listed in the \'%1$s\' section below.',
+                  'domain-plugin-LoginRequirePress'),
+              \__('Non-private login-protected post(s)',
+                  'domain-plugin-LoginRequirePress'))
+                   ?></p><?php
+            ?><form method='post' action='admin-post.php'><?php
+              ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
+                \wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
 
-              $arrNonPrivateLoginProtected = [];
-              $arrNonPrivateLoginPasscodeProtected = [];
-              $arrPrivate = [];
-              $arrPasscodeProtected = [];
-          ?><input type='submit' value='<?=\__('Update LR Settings',
-                                               'domain-plugin-LoginRequirePress')
-                                          ?>' class='button-primary'/><hr><?php
-          ?><table style='border-collapse:collapse'><?php
-            ?><tr><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
-                \__('LR', 'domain-plugin-LoginRequirePress')
-              ?></th><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
-                \__('Current LR', 'domain-plugin-LoginRequirePress')
-              ?></th><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
-                \__('ID', 'domain-plugin-LoginRequirePress')
-              ?></th><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
-                \__('Post Name', 'domain-plugin-LoginRequirePress')
-              ?></th><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
-                \__('Post Type', 'domain-plugin-LoginRequirePress')
-              ?></th><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
-                \__('Page Template', 'domain-plugin-LoginRequirePress')
-              ?></th><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
-                \__('Post Status', 'domain-plugin-LoginRequirePress')
-              ?></th><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
-                \__('Default Visibility', 'domain-plugin-LoginRequirePress')
-              ?></th><?php
-            ?></tr><?php
-                $indexRow = 0;
-                while($w_p_query->have_posts()) {
-                    $w_p_query->the_post();
+                $arrNonPrivateLoginProtected = [];
+                $arrNonPrivateLoginPasscodeProtected = [];
+                $arrPrivate = [];
+                $arrPasscodeProtected = [];
+            ?><input type='submit' value='<?=\__('Update LR Settings',
+                                                 'domain-plugin-LoginRequirePress')
+                                            ?>' class='button-primary'/><hr><?php
+            ?><table style='border-collapse:collapse'><?php
+              ?><tr><?php
+                ?><th style='padding-right:15px;text-align:left'><?=
+                  \__('LR', 'domain-plugin-LoginRequirePress')
+                ?></th><?php
+                ?><th style='padding-right:15px;text-align:left'><?=
+                  \__('Current LR', 'domain-plugin-LoginRequirePress')
+                ?></th><?php
+                ?><th style='padding-right:15px;text-align:left'><?=
+                  \__('ID', 'domain-plugin-LoginRequirePress')
+                ?></th><?php
+                ?><th style='padding-right:15px;text-align:left'><?=
+                  \__('Post Name', 'domain-plugin-LoginRequirePress')
+                ?></th><?php
+                ?><th style='padding-right:15px;text-align:left'><?=
+                  \__('Post Type', 'domain-plugin-LoginRequirePress')
+                ?></th><?php
+                ?><th style='padding-right:15px;text-align:left'><?=
+                  \__('Page Template', 'domain-plugin-LoginRequirePress')
+                ?></th><?php
+                ?><th style='padding-right:15px;text-align:left'><?=
+                  \__('Post Status', 'domain-plugin-LoginRequirePress')
+                ?></th><?php
+                ?><th style='padding-right:15px;text-align:left'><?=
+                  \__('Default Visibility', 'domain-plugin-LoginRequirePress')
+                ?></th><?php
+              ?></tr><?php
+                  $indexRow = 0;
+                  while($w_p_query->have_posts()) {
+                      $w_p_query->the_post();
 
-                    global $post;
-                    $idPost = $post->ID;
-                    $isLoginRequired = isLoginRequiredForPost($post);
-                    $strPostName = $post->post_name;
-                    $urlPostEdit = \get_edit_post_link($idPost);
-                    $strPostStatus = \get_post_status($idPost);
-                    $isPrivate = ($strPostStatus != 'publish');
-                    $strVisibility = $isPrivate ? \__('Private', 'domain-plugin-LoginRequirePress')
-                                                : \__('Public', 'domain-plugin-LoginRequirePress');
-                    $isPasscodeProtected = ($post->post_password != null);
-                    if ($isPasscodeProtected) {
-                        $strVisibility = \__('Passcode (AKA password) protected');
-                    }
+                      global $post;
+                      $idPost = $post->ID;
+                      $isLoginRequired = isLoginRequiredForPost($post);
+                      $strPostName = $post->post_name;
+                      $urlPostEdit = \get_edit_post_link($idPost);
+                      $strPostStatus = \get_post_status($idPost);
+                      $isPrivate = ($strPostStatus != 'publish');
+                      $strVisibility = $isPrivate ? \__('Private', 'domain-plugin-LoginRequirePress')
+                                                  : \__('Public', 'domain-plugin-LoginRequirePress');
+                      $isPasscodeProtected = ($post->post_password != null);
+                      if ($isPasscodeProtected) {
+                          $strVisibility = \__('Passcode (AKA password) protected');
+                      }
 
-                    if ($isPrivate) {
-                        \array_push($arrPrivate, $post);
-                    } else if ($isLoginRequired) {
-                        \array_push($arrNonPrivateLoginProtected, $post);
-                        if ($isPasscodeProtected) {
-                            \array_push($arrNonPrivateLoginPasscodeProtected, $post);
-                        }
-                    }
-                    if ($isPasscodeProtected) {
-                        \array_push($arrPasscodeProtected, $post);
-                    }
-                ?><input type='hidden' name='post_<?=$idPost?>'><?php
-                ?><tr <?=$indexRow % 2 == 0
-                         ? 'style=\'background-color:#dde\''
-                         : ""?>>
-                    <td><input type='checkbox' name='lock_<?=$idPost?>' <?=$isLoginRequired
-                                                                           ? 'checked'
-                                                                           : ""?>></td>
-                    <td>
-                    <?php
-                        if ($isLoginRequired) {
-                            ?><font color='red'><?php
-                              ?><?=\__(YES,'domain-plugin-LoginRequirePress')?><?php
-                            ?></font><?php
-                        }
-                    ?>
-                    </td>
-                    <td><a href='<?=$urlPostEdit?>'><?=$idPost?></a></td>
-                    <td><a href='<?=$urlPostEdit?>'><?=$strPostName?></a></td>
-                    <td><?=$post->post_type?></td>
-                    <td><?=\get_page_template_slug($idPost)?></td>
-                    <td style='<?=$isPrivate ? 'color:red' : "" ?>'>
-                      <?=$strPostStatus?>
-                    </td>
-                    <td style='<?=$isPrivate || $isPasscodeProtected ? 'color:red' : "" ?>'>
-                      <?=$strVisibility?>
-                    </td>
-                  </tr><?php
-                    $indexRow++;
-                }
-                \wp_reset_postdata();
-          ?></table><?php
-          ?><hr><input type='submit' value='<?=\__('Update LR Settings',
-                                                   'domain-plugin-LoginRequirePress')
-                                              ?>' class='button-primary'<?php
-                                               ?> style='margin-bottom:3em'/><?php
+                      if ($isPrivate) {
+                          \array_push($arrPrivate, $post);
+                      } else if ($isLoginRequired) {
+                          \array_push($arrNonPrivateLoginProtected, $post);
+                          if ($isPasscodeProtected) {
+                              \array_push($arrNonPrivateLoginPasscodeProtected, $post);
+                          }
+                      }
+                      if ($isPasscodeProtected) {
+                          \array_push($arrPasscodeProtected, $post);
+                      }
+                  ?><input type='hidden' name='post_<?=$idPost?>'><?php
+                  ?><tr <?=$indexRow % 2 == 0
+                           ? 'style=\'background-color:#dde\''
+                           : ""?>>
+                      <td><input type='checkbox' name='lock_<?=$idPost?>' <?=$isLoginRequired
+                                                                             ? 'checked'
+                                                                             : ""?>></td>
+                      <td>
+                      <?php
+                          if ($isLoginRequired) {
+                              ?><font color='red'><?php
+                                ?><?=\__(YES,'domain-plugin-LoginRequirePress')?><?php
+                              ?></font><?php
+                          }
+                      ?>
+                      </td>
+                      <td><a href='<?=$urlPostEdit?>'><?=$idPost?></a></td>
+                      <td><a href='<?=$urlPostEdit?>'><?=$strPostName?></a></td>
+                      <td><?=$post->post_type?></td>
+                      <td><?=\get_page_template_slug($idPost)?></td>
+                      <td style='<?=$isPrivate ? 'color:red' : "" ?>'>
+                        <?=$strPostStatus?>
+                      </td>
+                      <td style='<?=$isPrivate || $isPasscodeProtected ? 'color:red' : "" ?>'>
+                        <?=$strVisibility?>
+                      </td>
+                    </tr><?php
+                      $indexRow++;
+                  }
+                  \wp_reset_postdata();
+            ?></table><?php
+            ?><hr><input type='submit' value='<?=\__('Update LR Settings',
+                                                     'domain-plugin-LoginRequirePress')
+                                                ?>' class='button-primary'<?php
+                                                 ?> style='margin-bottom:3em'/><?php
 
-          ?></form><?php
+            ?></form><?php
 
-          $renderRefreshButton();
+            $renderRefreshButton();
 
-          if (\count($arrPrivate) > 0) {
-              $renderListOfPosts(
-                  'Private / pending post(s):',
-                  'These posts are invisible to the public, as well as to the logged-in Subscribers, Contributors, and other Authors.  Post visibility can be edited on each post\'s edit page.',
-                  $arrPrivate);
-          }
+            if (\count($arrPrivate) > 0) {
+                $renderListOfPosts(
+                    'Private / pending post(s):',
+                    'These posts are invisible to the public, as well as to the logged-in Subscribers, Contributors, and other Authors.  Post visibility can be edited on each post\'s edit page.',
+                    $arrPrivate);
+            }
 
-          if (true) {
-              $renderListOfPosts(
-                  'Non-private login-protected post(s):',
-                  'These posts will require user login to read, but since logged-in users will be able to read them, they\'re not "private".  The login protection can be modified on the table above by checking or unchecking the LR (Login Required) checkbox corresponding to each post.',
-                  $arrNonPrivateLoginProtected);
-          }
+            if (true) {
+                $renderListOfPosts(
+                    'Non-private login-protected post(s):',
+                    'These posts will require user login to read, but since logged-in users will be able to read them, they\'re not "private".  The login protection can be modified on the table above by checking or unchecking the LR (Login Required) checkbox corresponding to each post.',
+                    $arrNonPrivateLoginProtected);
+            }
 
-          if (\count($arrPasscodeProtected) > 0) {
-              $renderListOfPosts(
-                  'Passcode-protected post(s):',
-                  'Also known as the WordPress "Password Protected" posts, but different from login-protected.  The content of any of these posts will be invisible to the public, as well as to any logged-in users, until they enter a special post-only passcode / "password", previously chosen in the Post Visibility section of each of these posts\' edit pages.',
-                  $arrPasscodeProtected);
-          }
-          if (\count($arrNonPrivateLoginPasscodeProtected) > 0) {
-              $renderListOfPosts(
-                  'Non-private login-and-passcode-protected post(s):',
-                  'These posts are both login-protected and passcode-protected.  Website visitors will have to first login, and then enter an additional post-specific passcode to read any of these post(s).',
-                  $arrNonPrivateLoginPasscodeProtected);
-          }
+            if (\count($arrPasscodeProtected) > 0) {
+                $renderListOfPosts(
+                    'Passcode-protected post(s):',
+                    'Also known as the WordPress "Password Protected" posts, but different from login-protected.  The content of any of these posts will be invisible to the public, as well as to any logged-in users, until they enter a special post-only passcode / "password", previously chosen in the Post Visibility section of each of these posts\' edit pages.',
+                    $arrPasscodeProtected);
+            }
+            if (\count($arrNonPrivateLoginPasscodeProtected) > 0) {
+                $renderListOfPosts(
+                    'Non-private login-and-passcode-protected post(s):',
+                    'These posts are both login-protected and passcode-protected.  Website visitors will have to first login, and then enter an additional post-specific passcode to read any of these post(s).',
+                    $arrNonPrivateLoginPasscodeProtected);
+            }
 
-          ?><hr><?php
+            ?><hr><?php
 
-          $renderRefreshButton();
-      } else {
-      ?><?=\__('No posts', 'domain-plugin-LoginRequirePress')?><?php
-      }
+            $renderRefreshButton();
+        } else {
+        ?><?=\__('No posts', 'domain-plugin-LoginRequirePress')?><?php
+        }
     ?></div><?php
     }
 
