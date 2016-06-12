@@ -382,6 +382,8 @@
                                               ?>' class='button-primary'<?php
                                                ?> style='margin-bottom:3em'/><?php
 
+              $renderRefreshButton();
+
               if (\count($arrPrivate) > 0) {
                   $renderListOfPosts(
                       'Private / pending post(s):',
@@ -408,6 +410,10 @@
                       'These posts are both login-protected and passcode-protected.  Website visitors will have to first login, and then enter an additional post-specific passcode to read any of these post(s).',
                       $arrNonPrivateLoginPasscodeProtected);
               }
+
+              ?><hr><?php
+
+              $renderRefreshButton();
           } else {
           ?><?=\__('No posts', 'domain-plugin-LoginRequirePress')?><?php
           }
