@@ -259,6 +259,12 @@
 
       $renderRefreshButton();
 
+      $w_p_query = new \WP_Query(['order'           => 'ASC',
+                                  'orderby'         => 'name',
+                                  'post_status'     => 'any',
+                                  'post_type'       => \get_post_types(['public' => true]),
+                                  'posts_per_page'  => -1]);
+
       ?><p><?=\sprintf(
         \__('Check the checkbox(es) corresponding to the post(s) for which you want to require ' .
             'user login, then submit the form by clicking \'%1$s\' at the top or bottom.',
@@ -276,12 +282,6 @@
       ?><form method='post' action='admin-post.php'><?php
         ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
           \wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
-
-          $w_p_query = new \WP_Query(['order'           => 'ASC',
-                                      'orderby'         => 'name',
-                                      'post_status'     => 'any',
-                                      'post_type'       => \get_post_types(['public' => true]),
-                                      'posts_per_page'  => -1]);
 
           global $post;
           if ($w_p_query->have_posts()) {
