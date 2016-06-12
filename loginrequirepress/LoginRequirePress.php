@@ -226,6 +226,8 @@
                         'domain-plugin-LoginRequirePress'));
         }
     ?><div class="wrap"><?php
+      ?><p><button class='button-secondary'<?php
+                ?> onclick='window.location.reload()'>Refresh</button></p><?php
       ?><p><?=\sprintf(
         \__('Check the checkbox(es) corresponding to the post(s) for which you want to require ' .
             'user login, then submit the form by clicking \'%1$s\' at the top or bottom.',
