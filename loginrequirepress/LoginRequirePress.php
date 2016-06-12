@@ -371,7 +371,7 @@
               if (\count($arrNonPrivateLoginProtected) > 0) {
                   $renderListOfPosts(
                       'Non-private login-protected post(s):',
-                      'These posts will require user login to read, but all logged-in users will be able to read them, hence they\'re not "private".  The login protection can be modified in the table above by checking or unchecking the LR (Login Required) checkbox corresponding to the post.',
+                      'These posts will require user login to read, but since logged-in users will be able to read them, they\'re not "private".  The login protection can be modified in the table above by checking or unchecking the LR (Login Required) checkbox corresponding to the post.',
                       $arrNonPrivateLoginProtected);
               }
 
