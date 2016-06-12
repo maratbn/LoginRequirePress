@@ -359,7 +359,7 @@
 
               if (\count($arrPrivate) > 0) {
                   $renderListOfPosts(
-                      'Private post(s):',
+                      'Private / pending post(s):',
                       'These posts are invisible to the public, as well as to the logged-in Subscribers, Contributors, and other Authors.  Post visibility can be edited on each post\'s edit page.',
                       $arrPrivate);
               }
