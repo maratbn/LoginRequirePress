@@ -265,25 +265,25 @@
                                   'post_type'       => \get_post_types(['public' => true]),
                                   'posts_per_page'  => -1]);
 
-      ?><p><?=\sprintf(
-        \__('Check the checkbox(es) corresponding to the post(s) for which you want to require ' .
-            'user login, then submit the form by clicking \'%1$s\' at the top or bottom.',
-            'domain-plugin-LoginRequirePress'),
-        \__('Update LR Settings',
-            'domain-plugin-LoginRequirePress'));
-             ?></p><?php
-      ?><p><?=\sprintf(
-        \__('After submitting the form, make sure that any post(s) you want login-protected are ' .
-            'listed in the \'%1$s\' section below.',
-            'domain-plugin-LoginRequirePress'),
-        \__('Non-private login-protected post(s)',
-            'domain-plugin-LoginRequirePress'))
-             ?></p><?php
-      ?><form method='post' action='admin-post.php'><?php
-        ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
-          \wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
+      if ($w_p_query->have_posts()) {
+          ?><p><?=\sprintf(
+            \__('Check the checkbox(es) corresponding to the post(s) for which you want to require ' .
+                'user login, then submit the form by clicking \'%1$s\' at the top or bottom.',
+                'domain-plugin-LoginRequirePress'),
+            \__('Update LR Settings',
+                'domain-plugin-LoginRequirePress'));
+                 ?></p><?php
+          ?><p><?=\sprintf(
+            \__('After submitting the form, make sure that any post(s) you want login-protected are ' .
+                'listed in the \'%1$s\' section below.',
+                'domain-plugin-LoginRequirePress'),
+            \__('Non-private login-protected post(s)',
+                'domain-plugin-LoginRequirePress'))
+                 ?></p><?php
+          ?><form method='post' action='admin-post.php'><?php
+            ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
+              \wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
 
-          if ($w_p_query->have_posts()) {
               $arrNonPrivateLoginProtected = [];
               $arrNonPrivateLoginPasscodeProtected = [];
               $arrPrivate = [];
@@ -383,42 +383,44 @@
                                               ?>' class='button-primary'<?php
                                                ?> style='margin-bottom:3em'/><?php
 
-              $renderRefreshButton();
+          ?></form><?php
 
-              if (\count($arrPrivate) > 0) {
-                  $renderListOfPosts(
-                      'Private / pending post(s):',
-                      'These posts are invisible to the public, as well as to the logged-in Subscribers, Contributors, and other Authors.  Post visibility can be edited on each post\'s edit page.',
-                      $arrPrivate);
-              }
+          $renderRefreshButton();
 
-              if (true) {
-                  $renderListOfPosts(
-                      'Non-private login-protected post(s):',
-                      'These posts will require user login to read, but since logged-in users will be able to read them, they\'re not "private".  The login protection can be modified on the table above by checking or unchecking the LR (Login Required) checkbox corresponding to each post.',
-                      $arrNonPrivateLoginProtected);
-              }
-
-              if (\count($arrPasscodeProtected) > 0) {
-                  $renderListOfPosts(
-                      'Passcode-protected post(s):',
-                      'Also known as the WordPress "Password Protected" posts, but different from login-protected.  The content of any of these posts will be invisible to the public, as well as to any logged-in users, until they enter a special post-only passcode / "password", previously chosen in the Post Visibility section of each of these posts\' edit pages.',
-                      $arrPasscodeProtected);
-              }
-              if (\count($arrNonPrivateLoginPasscodeProtected) > 0) {
-                  $renderListOfPosts(
-                      'Non-private login-and-passcode-protected post(s):',
-                      'These posts are both login-protected and passcode-protected.  Website visitors will have to first login, and then enter an additional post-specific passcode to read any of these post(s).',
-                      $arrNonPrivateLoginPasscodeProtected);
-              }
-
-              ?><hr><?php
-
-              $renderRefreshButton();
-          } else {
-          ?><?=\__('No posts', 'domain-plugin-LoginRequirePress')?><?php
+          if (\count($arrPrivate) > 0) {
+              $renderListOfPosts(
+                  'Private / pending post(s):',
+                  'These posts are invisible to the public, as well as to the logged-in Subscribers, Contributors, and other Authors.  Post visibility can be edited on each post\'s edit page.',
+                  $arrPrivate);
           }
-      ?></form></div><?php
+
+          if (true) {
+              $renderListOfPosts(
+                  'Non-private login-protected post(s):',
+                  'These posts will require user login to read, but since logged-in users will be able to read them, they\'re not "private".  The login protection can be modified on the table above by checking or unchecking the LR (Login Required) checkbox corresponding to each post.',
+                  $arrNonPrivateLoginProtected);
+          }
+
+          if (\count($arrPasscodeProtected) > 0) {
+              $renderListOfPosts(
+                  'Passcode-protected post(s):',
+                  'Also known as the WordPress "Password Protected" posts, but different from login-protected.  The content of any of these posts will be invisible to the public, as well as to any logged-in users, until they enter a special post-only passcode / "password", previously chosen in the Post Visibility section of each of these posts\' edit pages.',
+                  $arrPasscodeProtected);
+          }
+          if (\count($arrNonPrivateLoginPasscodeProtected) > 0) {
+              $renderListOfPosts(
+                  'Non-private login-and-passcode-protected post(s):',
+                  'These posts are both login-protected and passcode-protected.  Website visitors will have to first login, and then enter an additional post-specific passcode to read any of these post(s).',
+                  $arrNonPrivateLoginPasscodeProtected);
+          }
+
+          ?><hr><?php
+
+          $renderRefreshButton();
+      } else {
+      ?><?=\__('No posts', 'domain-plugin-LoginRequirePress')?><?php
+      }
+    ?></div><?php
     }
 
 ?>
