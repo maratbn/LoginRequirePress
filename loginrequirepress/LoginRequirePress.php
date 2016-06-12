@@ -378,7 +378,7 @@
               if (\count($arrPasscodeProtected) > 0) {
                   $renderListOfPosts(
                       'Passcode-protected post(s):',
-                      'Also known as the WordPress "Password Protected" posts, but different from login-protected.  The content of any of these posts will be invisible to the public, as well as to any logged-in users, until they enter a special post-only passcode / "password", previously chosen in the Post Visibility section of each of these posts\' edit pages.  Any post that is both login protected and "Password Protected" will require user login, and then the entry of the additional post-only passcode to see its content.',
+                      'Also known as the WordPress "Password Protected" posts, but different from login-protected.  The content of any of these posts will be invisible to the public, as well as to any logged-in users, until they enter a special post-only passcode / "password", previously chosen in the Post Visibility section of each of these posts\' edit pages.',
                       $arrPasscodeProtected);
               }
               if (\count($arrNonPrivateLoginPasscodeProtected) > 0) {
