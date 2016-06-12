@@ -286,7 +286,7 @@
                     $strPostName = $post->post_name;
                     $urlPostEdit = \get_edit_post_link($idPost);
                     $strPostStatus = \get_post_status($idPost);
-                    $isPrivate = ($strPostStatus == 'private');
+                    $isPrivate = ($strPostStatus != 'publish');
                     $strVisibility = $isPrivate ? \__('Private', 'domain-plugin-LoginRequirePress')
                                                 : \__('Public', 'domain-plugin-LoginRequirePress');
                     $isPasscodeProtected = ($post->post_password != null);
