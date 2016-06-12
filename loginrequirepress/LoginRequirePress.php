@@ -283,7 +283,6 @@
         ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
           \wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
 
-          global $post;
           if ($w_p_query->have_posts()) {
               $arrNonPrivateLoginProtected = [];
               $arrNonPrivateLoginPasscodeProtected = [];
@@ -322,6 +321,8 @@
                 $indexRow = 0;
                 while($w_p_query->have_posts()) {
                     $w_p_query->the_post();
+
+                    global $post;
                     $idPost = $post->ID;
                     $isLoginRequired = isLoginRequiredForPost($post);
                     $strPostName = $post->post_name;
