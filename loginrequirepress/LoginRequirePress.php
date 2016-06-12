@@ -225,6 +225,32 @@
             \wp_die(\__('You do not have sufficient permissions to access this page.',
                         'domain-plugin-LoginRequirePress'));
         }
+
+
+        $renderListOfPosts = function($strName, $strDesc, $arrPosts) {
+                ?><hr><?php
+                ?><h3><?php
+                  ?><?=\__($strName, 'domain-plugin-LoginRequirePress')?><?php
+                ?></h3><?php
+                ?><i><?php
+                  ?><?=\__($strDesc, 'domain-plugin-LoginRequirePress')?><?php
+                ?></i><?php
+                if (\count($arrPosts) == 0) {
+                    ?><p><strong>[none]</strong></p><?php
+                } else {
+                    ?><ul><?php
+                    foreach ($arrPosts as $objPost) {
+                        ?><li><?php
+                          ?><a href='<?=\get_edit_post_link($objPost->ID)?>'><?php
+                            ?><?=$objPost->post_name?><?php
+                          ?></a><?php
+                        ?></li><?php
+                    }
+                    ?></ul><?php
+                }
+            };
+
+
     ?><div class="wrap"><?php
       ?><p><button class='button-secondary'<?php
                 ?> onclick='window.location.reload()'>Refresh</button></p><?php
@@ -350,29 +376,6 @@
                                                    'domain-plugin-LoginRequirePress')
                                               ?>' class='button-primary'<?php
                                                ?> style='margin-bottom:3em'/><?php
-
-              $renderListOfPosts = function($strName, $strDesc, $arrPosts) {
-                      ?><hr><?php
-                      ?><h3><?php
-                        ?><?=\__($strName, 'domain-plugin-LoginRequirePress')?><?php
-                      ?></h3><?php
-                      ?><i><?php
-                        ?><?=\__($strDesc, 'domain-plugin-LoginRequirePress')?><?php
-                      ?></i><?php
-                      if (\count($arrPosts) == 0) {
-                          ?><p><strong>[none]</strong></p><?php
-                      } else {
-                          ?><ul><?php
-                          foreach ($arrPosts as $objPost) {
-                              ?><li><?php
-                                ?><a href='<?=\get_edit_post_link($objPost->ID)?>'><?php
-                                  ?><?=$objPost->post_name?><?php
-                                ?></a><?php
-                              ?></li><?php
-                          }
-                          ?></ul><?php
-                      }
-                  };
 
               if (\count($arrPrivate) > 0) {
                   $renderListOfPosts(
