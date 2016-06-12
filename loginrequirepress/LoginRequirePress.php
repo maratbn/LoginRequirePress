@@ -250,10 +250,15 @@
                 }
             };
 
+        $renderRefreshButton = function() {
+                ?><p><button class='button-secondary'<?php
+                          ?> onclick='window.location.reload()'>Refresh</button></p><?php
+            };
 
     ?><div class="wrap"><?php
-      ?><p><button class='button-secondary'<?php
-                ?> onclick='window.location.reload()'>Refresh</button></p><?php
+
+      $renderRefreshButton();
+
       ?><p><?=\sprintf(
         \__('Check the checkbox(es) corresponding to the post(s) for which you want to require ' .
             'user login, then submit the form by clicking \'%1$s\' at the top or bottom.',
