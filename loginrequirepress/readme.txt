@@ -101,6 +101,7 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 * Tested up to WordPress 4.5.2
 * Improved the listing-out of posts in the post categorizations sections on the plugin's Settings
   page.
+* Added 'Refresh' buttons to the Settings page.
 
 = 1.0.0 =
 * Version incremented to 1.0.0 to signify public release.
