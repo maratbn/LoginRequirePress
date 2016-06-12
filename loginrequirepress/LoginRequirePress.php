@@ -246,6 +246,7 @@
           global $post;
           if ($w_p_query->have_posts()) {
               $arrNonPrivateLoginProtected = [];
+              $arrNonPrivateLoginPasscodeProtected = [];
               $arrPrivate = [];
               $arrPasscodeProtected = [];
           ?><input type='submit' value='<?=\__('Update LR Settings',
@@ -298,6 +299,9 @@
                         \array_push($arrPrivate, $post);
                     } else if ($isLoginRequired) {
                         \array_push($arrNonPrivateLoginProtected, $post);
+                        if ($isPasscodeProtected) {
+                            \array_push($arrNonPrivateLoginPasscodeProtected, $post);
+                        }
                     }
                     if ($isPasscodeProtected) {
                         \array_push($arrPasscodeProtected, $post);
@@ -376,6 +380,12 @@
                       'Passcode-protected post(s):',
                       'Also known as the WordPress "Password Protected" posts, but different from login-protected.  The content of any of these posts will be invisible to the public, as well as to any logged-in users, until they enter a special post-only passcode / "password", previously chosen in the Post Visibility section of each of these posts\' edit pages.  Any post that is both login protected and "Password Protected" will require user login, and then the entry of the additional post-only passcode to see its content.',
                       $arrPasscodeProtected);
+              }
+              if (\count($arrNonPrivateLoginPasscodeProtected) > 0) {
+                  $renderListOfPosts(
+                      'Non-private login-and-passcode-protected post(s):',
+                      'These posts are both login-protected and passcode-protected.  Website visitors will have to first login, and then enter an additional post-specific passcode to read any of these post(s).',
+                      $arrNonPrivateLoginPasscodeProtected);
               }
           } else {
           ?><?=\__('No posts', 'domain-plugin-LoginRequirePress')?><?php
