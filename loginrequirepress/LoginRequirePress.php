@@ -267,21 +267,23 @@
 
         if ($w_p_query->have_posts()) {
             ?><p><?=\sprintf(
-              \__('Check the checkbox(es) corresponding to the post(s) for which you want to require ' .
-                  'user login, then submit the form by clicking \'%1$s\' at the top or bottom.',
+              \__('Check the checkbox(es) corresponding to the post(s) for which you want to ' .
+                  'require user login, then submit the form by clicking \'%1$s\' at the top or ' .
+                  'bottom.',
                   'domain-plugin-LoginRequirePress'),
               \__('Update LR Settings',
                   'domain-plugin-LoginRequirePress'));
                    ?></p><?php
             ?><p><?=\sprintf(
-              \__('After submitting the form, make sure that any post(s) you want login-protected are ' .
-                  'listed in the \'%1$s\' section below.',
+              \__('After submitting the form, make sure that any post(s) you want login-protected ' .
+                  'are listed in the \'%1$s\' section below.',
                   'domain-plugin-LoginRequirePress'),
               \__('Non-private login-protected post(s)',
                   'domain-plugin-LoginRequirePress'))
                    ?></p><?php
             ?><form method='post' action='admin-post.php'><?php
-              ?><input type='hidden' name='action' value='plugin_LoginRequirePress_settings' /><?php
+              ?><input type='hidden' name='action'
+                                    value='plugin_LoginRequirePress_settings' /><?php
                 \wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
 
                 $arrNonPrivateLoginProtected = [];
@@ -329,8 +331,10 @@
                       $urlPostEdit = \get_edit_post_link($idPost);
                       $strPostStatus = \get_post_status($idPost);
                       $isPrivate = ($strPostStatus != 'publish');
-                      $strVisibility = $isPrivate ? \__('Private', 'domain-plugin-LoginRequirePress')
-                                                  : \__('Public', 'domain-plugin-LoginRequirePress');
+                      $strVisibility = $isPrivate ? \__('Private',
+                                                        'domain-plugin-LoginRequirePress')
+                                                  : \__('Public',
+                                                        'domain-plugin-LoginRequirePress');
                       $isPasscodeProtected = ($post->post_password != null);
                       if ($isPasscodeProtected) {
                           $strVisibility = \__('Passcode (AKA password) protected');
