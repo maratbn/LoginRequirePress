@@ -102,6 +102,7 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 * Improved the listing-out of posts in the post categorizations sections on the plugin's Settings
   page.
 * Added 'Refresh' buttons to the Settings page.
+* Added LoginRequirePress meta box to the post edit screen.
 
 = 1.0.0 =
 * Version incremented to 1.0.0 to signify public release.
