@@ -383,9 +383,8 @@
                              ? 'style=\'background-color:#dde\''
                              : ""?>>
                         <td><input type='checkbox' name='<?=(LOCK_ . $idPost)
-                                                          ?>' <?=$isLoginRequired
-                                                                               ? 'checked'
-                                                                               : ""?>></td>
+                                                          ?>' <?=$isLoginRequired ? 'checked'
+                                                                                  : ""?>></td>
                         <td>
                         <?php
                             if ($isLoginRequired) {
