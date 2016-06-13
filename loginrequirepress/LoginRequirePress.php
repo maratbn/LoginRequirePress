@@ -181,10 +181,12 @@
     }
 
     function callbackMetaBox($post) {
+        $flagLR = isLoginRequiredForPost($post);
+
     ?><input type='hidden' name='<?=LOGIN_REQUIRE_PRESS__META?>' value='present'><?php
     ?><label><?php
       ?><input type='checkbox' name='<?=LOGIN_REQUIRE_PRESS__LOCK?>'<?php
-              ?><?=isLoginRequiredForPost($post) ? 'checked' : "" ?>><?php
+              ?><?=$flagLR ? 'checked' : "" ?>><?php
           ?><?=\__('Require login', 'domain-plugin-LoginRequirePress')?><?php
     ?></label><?php
     }
