@@ -275,8 +275,8 @@
                   'domain-plugin-LoginRequirePress'));
                    ?></p><?php
             ?><p><?=\sprintf(
-              \__('After submitting the form, make sure that any post(s) you want login-protected ' .
-                  'are listed in the \'%1$s\' section below.',
+              \__('After submitting the form, make sure that any post(s) you want ' .
+                  'login-protected are listed in the \'%1$s\' section below.',
                   'domain-plugin-LoginRequirePress'),
               \__('Non-private login-protected post(s)',
                   'domain-plugin-LoginRequirePress'))
