@@ -73,6 +73,7 @@
 
     const PHP_VERSION_MIN_SUPPORTED = '5.4';
 
+    const LOCK_                         = 'lock_';
     const LOGIN_REQUIRE_PRESS           = 'login_require_press';
     const LOGIN_REQUIRE_PRESS__LOCK     = 'login_require_press__lock';
     const LOGIN_REQUIRE_PRESS__META     = 'login_require_press__meta';
@@ -128,7 +129,7 @@
             \preg_match('/^post_(\d+)$/', $strFieldName, $arrMatch);
             if ($arrMatch && \count($arrMatch) == 2) {
                 $idPost = $arrMatch[1];
-                updateLoginRequired($idPost, isset($_POST['lock_' . $idPost]));
+                updateLoginRequired($idPost, isset($_POST[LOCK_ . $idPost]));
             }
         }
 
@@ -381,7 +382,8 @@
                     ?><tr <?=$indexRow % 2 == 0
                              ? 'style=\'background-color:#dde\''
                              : ""?>>
-                        <td><input type='checkbox' name='lock_<?=$idPost?>' <?=$isLoginRequired
+                        <td><input type='checkbox' name='<?=(LOCK_ . $idPost)
+                                                          ?>' <?=$isLoginRequired
                                                                                ? 'checked'
                                                                                : ""?>></td>
                         <td>
