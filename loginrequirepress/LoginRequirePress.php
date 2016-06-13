@@ -76,6 +76,7 @@
     const LOGIN_REQUIRE_PRESS           = 'login_require_press';
     const LOGIN_REQUIRE_PRESS__LOCK     = 'login_require_press__lock';
     const LOGIN_REQUIRE_PRESS__META     = 'login_require_press__meta';
+    const PRESENT                       = 'present';
     const YES                           = 'yes';
 
 
@@ -139,7 +140,7 @@
         if (!\current_user_can('manage_options')) return;
 
         if (isset($_POST[LOGIN_REQUIRE_PRESS__META]) &&
-                  $_POST[LOGIN_REQUIRE_PRESS__META] == 'present') {
+                  $_POST[LOGIN_REQUIRE_PRESS__META] == PRESENT) {
             updateLoginRequired($idPost, isset($_POST[LOGIN_REQUIRE_PRESS__LOCK]) &&
                                                $_POST[LOGIN_REQUIRE_PRESS__LOCK] == 'on');
         }
