@@ -284,12 +284,12 @@
             ?><form method='post' action='admin-post.php'><?php
               ?><input type='hidden' name='action'
                                     value='plugin_LoginRequirePress_settings' /><?php
-                \wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
+                  \wp_nonce_field('plugin_LoginRequirePress_settings_nonce');
 
-                $arrNonPrivateLoginProtected = [];
-                $arrNonPrivateLoginPasscodeProtected = [];
-                $arrPrivate = [];
-                $arrPasscodeProtected = [];
+                  $arrNonPrivateLoginProtected = [];
+                  $arrNonPrivateLoginPasscodeProtected = [];
+                  $arrPrivate = [];
+                  $arrPasscodeProtected = [];
               ?><input type='submit' value='<?=\__('Update LR Settings',
                                                    'domain-plugin-LoginRequirePress')
                                               ?>' class='button-primary'/><hr><?php
