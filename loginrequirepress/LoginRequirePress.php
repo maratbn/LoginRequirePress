@@ -74,6 +74,8 @@
     const PHP_VERSION_MIN_SUPPORTED = '5.4';
 
     const LOGIN_REQUIRE_PRESS           = 'login_require_press';
+    const LOGIN_REQUIRE_PRESS__LOCK     = 'login_require_press__lock';
+    const LOGIN_REQUIRE_PRESS__META     = 'login_require_press__meta';
     const YES                           = 'yes';
 
 
@@ -85,14 +87,23 @@
     if (\is_admin()) {
         \register_activation_hook(__FILE__, '\\plugin_LoginRequirePress\\plugin_activation_hook');
 
+        \add_action('add_meta_boxes', '\\plugin_LoginRequirePress\\action_add_meta_boxes');
         \add_action('admin_menu', '\\plugin_LoginRequirePress\\action_admin_menu');
         \add_action('admin_post_plugin_LoginRequirePress_settings',
                     '\\plugin_LoginRequirePress\\action_admin_post_plugin_LoginRequirePress_settings');
+        \add_action('save_post', '\\plugin_LoginRequirePress\\action_save_post');
 
         \add_filter('plugin_action_links_' . \plugin_basename(__FILE__),
                     '\\plugin_LoginRequirePress\\filter_plugin_action_links');
     }
 
+
+    function action_add_meta_boxes() {
+        add_meta_box('plugin_LoginRequirePress_require_login',
+                     __('LoginRequirePress', 'domain-plugin-LoginRequirePress'),
+                     '\\plugin_LoginRequirePress\\callbackMetaBox',
+                     null);
+    }
 
     function action_admin_menu() {
         \add_options_page(\__('LoginRequirePress Settings', 'domain-plugin-LoginRequirePress'),
@@ -129,6 +140,21 @@
         exit();
     }
 
+    function action_save_post($idPost) {
+        if (!\current_user_can('manage_options')) return;
+
+        if (isset($_POST[LOGIN_REQUIRE_PRESS__META]) &&
+                  $_POST[LOGIN_REQUIRE_PRESS__META] == 'present') {
+            $flagIsLocked = (isset($_POST[LOGIN_REQUIRE_PRESS__LOCK]) &&
+                                   $_POST[LOGIN_REQUIRE_PRESS__LOCK] == 'on');
+            if ($flagIsLocked) {
+                \update_post_meta($idPost, LOGIN_REQUIRE_PRESS, YES);
+            } else {
+                \delete_post_meta($idPost, LOGIN_REQUIRE_PRESS);
+            }
+        }
+    }
+
     function action_send_headers() {
 
         //  No need to redirect to the login page if the user is already logged in.
@@ -159,6 +185,15 @@
             }
             \wp_reset_postdata();
         }
+    }
+
+    function callbackMetaBox($post) {
+    ?><input type='hidden' name='<?=LOGIN_REQUIRE_PRESS__META?>' value='present'><?php
+    ?><label><?php
+      ?><input type='checkbox' name='<?=LOGIN_REQUIRE_PRESS__LOCK?>'<?php
+              ?><?=isLoginRequiredForPost($post) ? 'checked' : "" ?>><?php
+          ?><?=\__('Require login', 'domain-plugin-LoginRequirePress')?><?php
+    ?></label><?php
     }
 
     function filter_plugin_action_links($arrLinks) {
