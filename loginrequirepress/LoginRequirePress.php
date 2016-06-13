@@ -394,27 +394,38 @@
             if (\count($arrPrivate) > 0) {
                 $renderListOfPosts(
                     'Private / pending post(s):',
-                    'These posts are invisible to the public, as well as to the logged-in Subscribers, Contributors, and other Authors.  Post visibility can be edited on each post\'s edit page.',
+                    'These posts are invisible to the public, as well as to the logged-in ' .
+                    'Subscribers, Contributors, and other Authors.  Post visibility can be ' .
+                    'edited on each post\'s edit page.',
                     $arrPrivate);
             }
 
             if (true) {
                 $renderListOfPosts(
                     'Non-private login-protected post(s):',
-                    'These posts will require user login to read, but since logged-in users will be able to read them, they\'re not "private".  The login protection can be modified on the table above by checking or unchecking the LR (Login Required) checkbox corresponding to each post.',
+                    'These posts will require user login to read, but since logged-in users ' .
+                    'will be able to read them, they\'re not "private".  The login protection ' .
+                    'can be modified on the table above by checking or unchecking the LR (Login ' .
+                    'Required) checkbox corresponding to each post.',
                     $arrNonPrivateLoginProtected);
             }
 
             if (\count($arrPasscodeProtected) > 0) {
                 $renderListOfPosts(
                     'Passcode-protected post(s):',
-                    'Also known as the WordPress "Password Protected" posts, but different from login-protected.  The content of any of these posts will be invisible to the public, as well as to any logged-in users, until they enter a special post-only passcode / "password", previously chosen in the Post Visibility section of each of these posts\' edit pages.',
+                    'Also known as the WordPress "Password Protected" posts, but different from ' .
+                    'login-protected.  The content of any of these posts will be invisible to ' .
+                    'the public, as well as to any logged-in users, until they enter a special ' .
+                    'post-only passcode / "password", previously chosen in the Post Visibility ' .
+                    'section of each of these posts\' edit pages.',
                     $arrPasscodeProtected);
             }
             if (\count($arrNonPrivateLoginPasscodeProtected) > 0) {
                 $renderListOfPosts(
                     'Non-private login-and-passcode-protected post(s):',
-                    'These posts are both login-protected and passcode-protected.  Website visitors will have to first login, and then enter an additional post-specific passcode to read any of these post(s).',
+                    'These posts are both login-protected and passcode-protected.  Website '.
+                    'visitors will have to first login, and then enter an additional ' .
+                    'post-specific passcode to read any of these post(s).',
                     $arrNonPrivateLoginPasscodeProtected);
             }
 
