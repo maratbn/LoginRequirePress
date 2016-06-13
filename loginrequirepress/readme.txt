@@ -95,6 +95,8 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 2. LoginRequirePress configuration screen with the lists of private, non-private login-protected,
    and passcode-protected posts.
 
+3. LoginRequirePress edit post meta box to enable or disable login protection.
+
 == Changelog ==
 
 = 1.1.0 =
