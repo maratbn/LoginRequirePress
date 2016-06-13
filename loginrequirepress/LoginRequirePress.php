@@ -73,8 +73,8 @@
 
     const PHP_VERSION_MIN_SUPPORTED = '5.4';
 
-    const LOGIN_REQUIRE_PRESS     = 'login_require_press';
-    const YES                     = 'yes';
+    const LOGIN_REQUIRE_PRESS           = 'login_require_press';
+    const YES                           = 'yes';
 
 
     \add_action('send_headers', '\\plugin_LoginRequirePress\\action_send_headers');
