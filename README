@@ -16,7 +16,7 @@ Licensed under GPL3.  See LICENSE.
 
 Overview:
 
-  At the time of this writing, the latest version of WordPress, version 4.5,
+  At the time of this writing, the latest version of WordPress, version 4.5.2,
   has 3 post visibility options, which are 'public', 'password protected', and
   'private'.
 
