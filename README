@@ -29,7 +29,7 @@ Overview:
   specifically designate arbitrary posts with any public post type as viewable
   only after user login.
 
-  It is an easy way to require user login to view specific pages / posts.
+  It is an easy way to require login to view specific pages / posts.
 
   Unauthenticated site visitors attempting to view any page that includes any
   such specifically designated post will then be automatically redirected to
