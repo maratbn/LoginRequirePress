@@ -2,7 +2,7 @@
 Contributors: maratbn
 Tags: require login, password protect, security, limit access, control access, members, visitors, subscribers, require-login, password-protect, login-protect, limit-access
 Requires at least: 3.8.1
-Tested up to: 4.5.2
+Tested up to: 4.6
 Stable tag: 1.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -100,6 +100,7 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 == Changelog ==
 
 = 1.2.0 =
+* Tested up to WordPress 4.6
 * Changed the plugin name from 'LoginRequirePress' to 'Login Require Press'.
 * Indicating posts without names by token [no name #] where # is the post ID number.
 * Shortened the plugin description appearing on the admin dashboard plugins list to just one
