@@ -167,12 +167,25 @@
         //  by the filter hook 'posts_results'.
         if ($w_p_query->is_search) return;
 
+        //  Need to obtain the site root directory:
+        $strSelf = $_SERVER['PHP_SELF'];
+        if ($strSelf == null) return;
+        $posIndexPHP = \strpos($strSelf, 'index.php');
+        if ($posIndexPHP === false) return;                         //  Not on regular site page.
+        $strSiteRoot = \substr($strSelf, 0, $posIndexPHP);
+
+        //  Need to obtain the internal site path portion after the root directory:
+        $strRequestPath = $_SERVER['REQUEST_URI'];
+        if ($strRequestPath == null) return;
+        if (\strpos($strRequestPath, $strSiteRoot) !== 0) return;
+        $strInternalPath = \substr($strRequestPath, \strlen($strSiteRoot));
+
         global $post;
         if ($w_p_query->have_posts()) {
             while($w_p_query->have_posts()) {
                 $w_p_query->the_post();
                 if (isLoginRequiredForPost($post)) {
-                    \header('Location: ' . \wp_login_url(\home_url($_SERVER['REQUEST_URI'])));
+                    \header('Location: ' . \wp_login_url(\home_url($strInternalPath)));
                     exit(0);
                 }
             }

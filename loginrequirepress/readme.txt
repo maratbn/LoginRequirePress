@@ -99,6 +99,9 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 
 == Changelog ==
 
+= 1.2.0 =
+* Added support for WordPress instances nested inside subdirectories.
+
 = 1.1.0 =
 * Tested up to WordPress 4.5.2
 * Improved the listing-out of posts in the post categorizations sections on the plugin's Settings
