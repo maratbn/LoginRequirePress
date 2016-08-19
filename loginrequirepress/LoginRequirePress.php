@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: LoginRequirePress
+  Plugin Name: Login Require Press
   Plugin URI: https://wordpress.org/plugins/loginrequirepress
   Plugin URI: https://github.com/maratbn/LoginRequirePress
   Plugin URI: http://www.maratbn.com/projects/login-require-press
@@ -13,30 +13,31 @@
 */
 
 /*
-  LoginRequirePress -- WordPress plugin that allows site administrators to
-                       specifically designate arbitrary posts with any public
-                       post type as viewable only after user login.
+  Login Require Press -- WordPress plugin that allows site administrators to
+                         specifically designate arbitrary posts with any
+                         public post type as viewable only after user login.
 
-                       It is an easy way to require user login to view specific
-                       pages / posts.
+                         It is an easy way to require user login to view
+                         specific pages / posts.
 
-                       Unauthenticated site visitors attempting to view any
-                       page that includes any such specifically designated
-                       post will then be automatically redirected to the
-                       site's default login page, and then back to the
-                       original page after they login, thereby limiting access
-                       only to logged-in users with subscriber roles and
-                       above.
+                         Unauthenticated site visitors attempting to view any
+                         page that includes any such specifically designated
+                         post will then be automatically redirected to the
+                         site's default login page, and then back to the
+                         original page after they login, thereby limiting
+                         access only to logged-in users with subscriber roles
+                         and above.
 
-                       Plugin will still allow unauthenticated downloading of
-                       site's feeds, but will filter out any login-requiring
-                       posts from the feed listings.
+                         Plugin will still allow unauthenticated downloading
+                         of site's feeds, but will filter out any
+                         login-requiring posts from the feed listings.
 
-                       Plugin will protect the titles and contents of login-
-                       requiring posts in search result page listings when the
-                       user is not logged in.  The titles / contents will be
-                       replaced by text "[Post title / content protected by
-                       LoginRequirePress.  Login to see the title / content.]"
+                         Plugin will protect the titles and contents of login-
+                         requiring posts in search result page listings when
+                         the user is not logged in.  The titles / contents
+                         will be replaced by text "[Post title / content
+                         protected by Login Require Press.  Login to see the
+                         title / content.]"
 
   https://wordpress.org/plugins/loginrequirepress
   https://github.com/maratbn/LoginRequirePress
@@ -48,24 +49,24 @@
 
   Module:         LoginRequirePress.php
 
-  Description:    Main PHP file for the WordPress plugin 'LoginRequirePress'.
+  Description:    Main PHP file for the WordPress plugin 'Login Require Press'.
 
-  This file is part of LoginRequirePress.
+  This file is part of Login Require Press.
 
   Licensed under the GNU General Public License Version 3.
 
-  LoginRequirePress is free software: you can redistribute it and/or modify
+  Login Require Press is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  LoginRequirePress is distributed in the hope that it will be useful,
+  Login Require Press is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with LoginRequirePress.  If not, see <http://www.gnu.org/licenses/>.
+  along with Login Require Press.  If not, see <http://www.gnu.org/licenses/>.
 */
 
     namespace plugin_LoginRequirePress;
@@ -103,14 +104,14 @@
 
     function action_add_meta_boxes() {
         add_meta_box('plugin_LoginRequirePress_require_login',
-                     __('LoginRequirePress', 'domain-plugin-LoginRequirePress'),
+                     __('Login Require Press', 'domain-plugin-LoginRequirePress'),
                      '\\plugin_LoginRequirePress\\callbackMetaBox',
                      null);
     }
 
     function action_admin_menu() {
-        \add_options_page(\__('LoginRequirePress Settings', 'domain-plugin-LoginRequirePress'),
-                          \__('LoginRequirePress', 'domain-plugin-LoginRequirePress'),
+        \add_options_page(\__('Login Require Press Settings', 'domain-plugin-LoginRequirePress'),
+                          \__('Login Require Press', 'domain-plugin-LoginRequirePress'),
                           'manage_options',
                           'plugin_LoginRequirePress_settings',
                           '\\plugin_LoginRequirePress\\render_settings');
@@ -231,9 +232,9 @@
         foreach ($arrPosts as $post) {
             if (isLoginRequiredForPost($post)) {
                 if ($flagIsSearchNotLoggedIn) {
-                    $post->post_content = \__('[Post content protected by LoginRequirePress.  Login to see the content.]',
+                    $post->post_content = \__('[Post content protected by Login Require Press.  Login to see the content.]',
                                               'domain-plugin-LoginRequirePress');
-                    $post->post_title = \__('[Post title protected by LoginRequirePress.  Login to see the title.]',
+                    $post->post_title = \__('[Post title protected by Login Require Press.  Login to see the title.]',
                                             'domain-plugin-LoginRequirePress');
                 } else {
                     continue;
@@ -259,7 +260,7 @@
     function plugin_activation_hook() {
          if (\version_compare(\strtolower(\PHP_VERSION), PHP_VERSION_MIN_SUPPORTED, '<')) {
             \wp_die(
-                \sprintf(\__('LoginRequirePress plugin cannot be activated because the currently active PHP version on this server is %s < %s and not supported.  PHP version >= %s is required.',
+                \sprintf(\__('Login Require Press plugin cannot be activated because the currently active PHP version on this server is %s < %s and not supported.  PHP version >= %s is required.',
                              'domain-plugin-LoginRequirePress'),
                          \PHP_VERSION,
                          PHP_VERSION_MIN_SUPPORTED,

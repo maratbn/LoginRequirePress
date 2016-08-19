@@ -1,4 +1,4 @@
-=== LoginRequirePress ===
+=== Login Require Press ===
 Contributors: maratbn
 Tags: require login, password protect, security, limit access, control access, members, visitors, subscribers, require-login, password-protect, login-protect, limit-access
 Requires at least: 3.8.1
@@ -22,7 +22,7 @@ Overview:
   additional password.  However, there is currently no built-in way to just
   deny access only to the unauthenticated users.
 
-  LoginRequirePress is a WordPress plugin that allows site administrators to
+  Login Require Press is a WordPress plugin that allows site administrators to
   specifically designate arbitrary posts with any public post type as viewable
   only after user login.
 
@@ -40,7 +40,7 @@ Overview:
   Plugin will protect the titles and contents of login-requiring posts in
   search result page listings when the user is not logged in.  The titles /
   contents will be replaced by text "[Post title / content protected by
-  LoginRequirePress.  Login to see the title / content.]"
+  Login Require Press.  Login to see the title / content.]"
 
 Technical summary:
 
@@ -75,7 +75,7 @@ https://wordpress.org/support/topic/crashes-on-activate
 Make sure to check your PHP version with
 https://wordpress.org/plugins/display-php-version/
 
-= Where can I ask a question about LoginRequirePress? =
+= Where can I ask a question about Login Require Press? =
 
 Ask your questions at: https://wordpress.org/support/plugin/loginrequirepress
 
@@ -89,17 +89,18 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 
 == Screenshots ==
 
-1. LoginRequirePress configuration screen with the table used to specify which posts are to be
+1. Login Require Press configuration screen with the table used to specify which posts are to be
    login-protected.
 
-2. LoginRequirePress configuration screen with the lists of private, non-private login-protected,
+2. Login Require Press configuration screen with the lists of private, non-private login-protected,
    and passcode-protected posts.
 
-3. LoginRequirePress edit post meta box to enable or disable login protection.
+3. Login Require Press edit post meta box to enable or disable login protection.
 
 == Changelog ==
 
 = 1.2.0 =
+* Changed the plugin name from 'LoginRequirePress' to 'Login Require Press'.
 * Indicating posts without names by token [no name #] where # is the post ID number.
 * Shortened the plugin description appearing on the admin dashboard plugins list to just one
   sentence.

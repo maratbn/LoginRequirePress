@@ -1,4 +1,4 @@
---------------------  WordPress plugin LoginRequirePress  --------------------
+-------------------  WordPress plugin Login Require Press  -------------------
 
 https://wordpress.org/plugins/loginrequirepress
 https://github.com/maratbn/LoginRequirePress
@@ -25,7 +25,7 @@ Overview:
   additional password.  However, there is currently no built-in way to just
   deny access only to the unauthenticated users.
 
-  LoginRequirePress is a WordPress plugin that allows site administrators to
+  Login Require Press is a WordPress plugin that allows site administrators to
   specifically designate arbitrary posts with any public post type as viewable
   only after user login.
 
@@ -43,7 +43,7 @@ Overview:
   Plugin will protect the titles and contents of login-requiring posts in
   search result page listings when the user is not logged in.  The titles /
   contents will be replaced by text "[Post title / content protected by
-  LoginRequirePress.  Login to see the title / content.]"
+  Login Require Press.  Login to see the title / content.]"
 
 Technical summary:
 
