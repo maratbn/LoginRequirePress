@@ -290,7 +290,12 @@
                     foreach ($arrPosts as $objPost) {
                         ?><li><?php
                           ?><a href='<?=\get_edit_post_link($objPost->ID)?>'><?php
-                            ?><?=$objPost->post_name?><?php
+                            ?><?=$objPost->post_name ? $objPost->post_name
+                                                     : \sprintf(
+                                                        \__('[no name %d]',
+                                                            'domain-plugin-LoginRequirePress'),
+                                                        $objPost->ID)
+                               ?><?php
                           ?></a><?php
                         ?></li><?php
                     }
