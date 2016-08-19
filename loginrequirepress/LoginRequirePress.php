@@ -4,7 +4,7 @@
   Plugin URI: https://wordpress.org/plugins/loginrequirepress
   Plugin URI: https://github.com/maratbn/LoginRequirePress
   Plugin URI: http://www.maratbn.com/projects/login-require-press
-  Description: Allows site administrators to specifically designate arbitrary posts with any public post type as viewable only after user login.  It is an easy way to require user login to view specific pages / posts.  Unauthenticated site visitors attempting to view any page that includes any such specifically designated post will then be automatically redirected to the site's default login page, and then back to the original page after they login, thereby limiting access only to logged-in users with subscriber roles and above.  Plugin will still allow unauthenticated downloading of site's feeds, but will filter out any login-requiring posts from the feed listings.  Plugin will protect the titles and contents of login-requiring posts in search result page listings when the user is not logged in.  The titles / contents will be replaced by text "[Post title / content protected by LoginRequirePress.  Login to see the title / content.]"
+  Description: Allows site administrators to specifically designate arbitrary posts with any public post type as viewable only after user login.
   Author: Marat Nepomnyashy
   Author URI: http://www.maratbn.com
   License: GPL3
