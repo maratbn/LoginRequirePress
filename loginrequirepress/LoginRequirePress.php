@@ -71,7 +71,7 @@
 
     namespace plugin_LoginRequirePress;
 
-
+    const DOMAIN_PLUGIN                 = 'domain-plugin-LoginRequirePress';
     const PHP_VERSION_MIN_SUPPORTED     = '5.4';
 
     const LOCK_                         = 'lock_';
@@ -104,14 +104,14 @@
 
     function action_add_meta_boxes() {
         add_meta_box('plugin_LoginRequirePress_require_login',
-                     __('Login Require Press', 'domain-plugin-LoginRequirePress'),
+                     __('Login Require Press', DOMAIN_PLUGIN),
                      '\\plugin_LoginRequirePress\\callbackMetaBox',
                      null);
     }
 
     function action_admin_menu() {
-        \add_options_page(\__('Login Require Press Settings', 'domain-plugin-LoginRequirePress'),
-                          \__('Login Require Press', 'domain-plugin-LoginRequirePress'),
+        \add_options_page(\__('Login Require Press Settings', DOMAIN_PLUGIN),
+                          \__('Login Require Press', DOMAIN_PLUGIN),
                           'manage_options',
                           'plugin_LoginRequirePress_settings',
                           '\\plugin_LoginRequirePress\\render_settings');
@@ -121,7 +121,7 @@
         //  Based on: http://jaskokoyn.com/2013/03/26/wordpress-admin-forms/
         if (!\current_user_can('manage_options')) {
             \wp_die(\__('Insufficient user permissions to modify options.',
-                        'domain-plugin-LoginRequirePress'));
+                        DOMAIN_PLUGIN));
         }
 
         // Check that nonce field
@@ -198,22 +198,22 @@
         $flagLR = isLoginRequiredForPost($post);
 
     ?><p><?=\__('Login protection:',
-                'domain-plugin-LoginRequirePress')?><?php
-      ?> <strong><?=$flagLR ? \__('Enabled', 'domain-plugin-LoginRequirePress')
-                            : \__('Disabled','domain-plugin-LoginRequirePress')?></strong></p><?php
+                DOMAIN_PLUGIN)?><?php
+      ?> <strong><?=$flagLR ? \__('Enabled', DOMAIN_PLUGIN)
+                            : \__('Disabled',DOMAIN_PLUGIN)?></strong></p><?php
 
     ?><input type='hidden' name='<?=LOGIN_REQUIRE_PRESS__META?>' value='present'><?php
     ?><label><?php
       ?><input type='checkbox' name='<?=LOGIN_REQUIRE_PRESS__LOCK?>'<?php
               ?><?=$flagLR ? 'checked' : "" ?>><?php
-          ?><?=\__('Require login', 'domain-plugin-LoginRequirePress')?><?php
+          ?><?=\__('Require login', DOMAIN_PLUGIN)?><?php
     ?></label><?php
     }
 
     function filter_plugin_action_links($arrLinks) {
         \array_push($arrLinks,
                     '<a href=\'' . getUrlSettings() . '\'>'
-                                   . \__('Settings', 'domain-plugin-LoginRequirePress') . '</a>');
+                                   . \__('Settings', DOMAIN_PLUGIN) . '</a>');
         return $arrLinks;
     }
 
@@ -233,9 +233,9 @@
             if (isLoginRequiredForPost($post)) {
                 if ($flagIsSearchNotLoggedIn) {
                     $post->post_content = \__('[Post content protected by Login Require Press.  Login to see the content.]',
-                                              'domain-plugin-LoginRequirePress');
+                                              DOMAIN_PLUGIN);
                     $post->post_title = \__('[Post title protected by Login Require Press.  Login to see the title.]',
-                                            'domain-plugin-LoginRequirePress');
+                                            DOMAIN_PLUGIN);
                 } else {
                     continue;
                 }
@@ -261,7 +261,7 @@
          if (\version_compare(\strtolower(\PHP_VERSION), PHP_VERSION_MIN_SUPPORTED, '<')) {
             \wp_die(
                 \sprintf(\__('Login Require Press plugin cannot be activated because the currently active PHP version on this server is %s < %s and not supported.  PHP version >= %s is required.',
-                             'domain-plugin-LoginRequirePress'),
+                             DOMAIN_PLUGIN),
                          \PHP_VERSION,
                          PHP_VERSION_MIN_SUPPORTED,
                          PHP_VERSION_MIN_SUPPORTED));
@@ -272,17 +272,17 @@
         //  Based on http://codex.wordpress.org/Administration_Menus
         if (!\current_user_can('manage_options' ))  {
             \wp_die(\__('You do not have sufficient permissions to access this page.',
-                        'domain-plugin-LoginRequirePress'));
+                        DOMAIN_PLUGIN));
         }
 
 
         $renderListOfPosts = function($strName, $strDesc, $arrPosts) {
                 ?><hr><?php
                 ?><h3><?php
-                  ?><?=\__($strName, 'domain-plugin-LoginRequirePress')?><?php
+                  ?><?=\__($strName, DOMAIN_PLUGIN)?><?php
                 ?></h3><?php
                 ?><i><?php
-                  ?><?=\__($strDesc, 'domain-plugin-LoginRequirePress')?><?php
+                  ?><?=\__($strDesc, DOMAIN_PLUGIN)?><?php
                 ?></i><?php
                 if (\count($arrPosts) == 0) {
                     ?><p><strong>[none]</strong></p><?php
@@ -294,7 +294,7 @@
                             ?><?=$objPost->post_name ? $objPost->post_name
                                                      : \sprintf(
                                                         \__('[no name %d]',
-                                                            'domain-plugin-LoginRequirePress'),
+                                                            DOMAIN_PLUGIN),
                                                         $objPost->ID)
                                ?><?php
                           ?></a><?php
@@ -324,16 +324,16 @@
               \__('Check the checkbox(es) corresponding to the post(s) for which you want to ' .
                   'require user login, then submit the form by clicking \'%1$s\' at the top or ' .
                   'bottom.',
-                  'domain-plugin-LoginRequirePress'),
+                  DOMAIN_PLUGIN),
               \__('Update LR Settings',
-                  'domain-plugin-LoginRequirePress'));
+                  DOMAIN_PLUGIN));
                    ?></p><?php
             ?><p><?=\sprintf(
               \__('After submitting the form, make sure that any post(s) you want ' .
                   'login-protected are listed in the \'%1$s\' section below.',
-                  'domain-plugin-LoginRequirePress'),
+                  DOMAIN_PLUGIN),
               \__('Non-private login-protected post(s)',
-                  'domain-plugin-LoginRequirePress'))
+                  DOMAIN_PLUGIN))
                    ?></p><?php
             ?><form method='post' action='admin-post.php'><?php
               ?><input type='hidden' name='action'
@@ -345,33 +345,33 @@
                   $arrPrivate = [];
                   $arrPasscodeProtected = [];
               ?><input type='submit' value='<?=\__('Update LR Settings',
-                                                   'domain-plugin-LoginRequirePress')
+                                                   DOMAIN_PLUGIN)
                                               ?>' class='button-primary'/><hr><?php
               ?><table style='border-collapse:collapse'><?php
                 ?><tr><?php
                   ?><th style='padding-right:15px;text-align:left'><?=
-                    \__('LR', 'domain-plugin-LoginRequirePress')
+                    \__('LR', DOMAIN_PLUGIN)
                   ?></th><?php
                   ?><th style='padding-right:15px;text-align:left'><?=
-                    \__('Current LR', 'domain-plugin-LoginRequirePress')
+                    \__('Current LR', DOMAIN_PLUGIN)
                   ?></th><?php
                   ?><th style='padding-right:15px;text-align:left'><?=
-                    \__('ID', 'domain-plugin-LoginRequirePress')
+                    \__('ID', DOMAIN_PLUGIN)
                   ?></th><?php
                   ?><th style='padding-right:15px;text-align:left'><?=
-                    \__('Post Name', 'domain-plugin-LoginRequirePress')
+                    \__('Post Name', DOMAIN_PLUGIN)
                   ?></th><?php
                   ?><th style='padding-right:15px;text-align:left'><?=
-                    \__('Post Type', 'domain-plugin-LoginRequirePress')
+                    \__('Post Type', DOMAIN_PLUGIN)
                   ?></th><?php
                   ?><th style='padding-right:15px;text-align:left'><?=
-                    \__('Page Template', 'domain-plugin-LoginRequirePress')
+                    \__('Page Template', DOMAIN_PLUGIN)
                   ?></th><?php
                   ?><th style='padding-right:15px;text-align:left'><?=
-                    \__('Post Status', 'domain-plugin-LoginRequirePress')
+                    \__('Post Status', DOMAIN_PLUGIN)
                   ?></th><?php
                   ?><th style='padding-right:15px;text-align:left'><?=
-                    \__('Default Visibility', 'domain-plugin-LoginRequirePress')
+                    \__('Default Visibility', DOMAIN_PLUGIN)
                   ?></th><?php
                 ?></tr><?php
                     $indexRow = 0;
@@ -386,9 +386,9 @@
                         $strPostStatus = \get_post_status($idPost);
                         $isPrivate = ($strPostStatus != 'publish');
                         $strVisibility = $isPrivate ? \__('Private',
-                                                          'domain-plugin-LoginRequirePress')
+                                                          DOMAIN_PLUGIN)
                                                     : \__('Public',
-                                                          'domain-plugin-LoginRequirePress');
+                                                          DOMAIN_PLUGIN);
                         $isPasscodeProtected = ($post->post_password != null);
                         if ($isPasscodeProtected) {
                             $strVisibility = \__('Passcode (AKA password) protected');
@@ -416,7 +416,7 @@
                         <?php
                             if ($isLoginRequired) {
                                 ?><font color='red'><?php
-                                  ?><?=\__(YES, 'domain-plugin-LoginRequirePress')?><?php
+                                  ?><?=\__(YES, DOMAIN_PLUGIN)?><?php
                                 ?></font><?php
                             }
                         ?>
@@ -437,7 +437,7 @@
                     \wp_reset_postdata();
               ?></table><?php
               ?><hr><input type='submit' value='<?=\__('Update LR Settings',
-                                                       'domain-plugin-LoginRequirePress')
+                                                       DOMAIN_PLUGIN)
                                                   ?>' class='button-primary'<?php
                                                    ?> style='margin-bottom:3em'/><?php
 
@@ -487,7 +487,7 @@
 
             $renderRefreshButton();
         } else {
-        ?><?=\__('No posts', 'domain-plugin-LoginRequirePress')?><?php
+        ?><?=\__('No posts', DOMAIN_PLUGIN)?><?php
         }
     ?></div><?php
     }
