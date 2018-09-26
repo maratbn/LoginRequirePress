@@ -72,7 +72,7 @@
     namespace plugin_LoginRequirePress;
 
 
-    const PHP_VERSION_MIN_SUPPORTED = '5.4';
+    const PHP_VERSION_MIN_SUPPORTED     = '5.4';
 
     const LOCK_                         = 'lock_';
     const LOGIN_REQUIRE_PRESS           = 'login_require_press';
