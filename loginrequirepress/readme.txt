@@ -2,7 +2,7 @@
 Contributors: maratbn
 Tags: require login, password protect, security, limit access, control access, members, visitors, subscribers, require-login, password-protect, login-protect, limit-access
 Requires at least: 3.8.1
-Tested up to: 4.6
+Tested up to: 4.9.8
 Stable tag: 1.2.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -98,6 +98,9 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 3. Login Require Press edit post meta box to enable or disable login protection.
 
 == Changelog ==
+
+= 1.3.0 =
+* Tested up to WordPress 4.9.8
 
 = 1.2.0 =
 * Tested up to WordPress 4.6
