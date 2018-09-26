@@ -101,6 +101,7 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 
 = 1.3.0 =
 * Tested up to WordPress 4.9.8
+* Added notice that changing settings in the meta box will not persist until the post is updated.
 
 = 1.2.0 =
 * Tested up to WordPress 4.6

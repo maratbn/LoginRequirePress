@@ -208,6 +208,10 @@
               ?><?=$flagLR ? 'checked' : "" ?>><?php
           ?><?=\__('Require login', DOMAIN_PLUGIN)?><?php
     ?></label><?php
+    ?><p><i><?php
+      ?><?=\__('Any changes will not persist until this post is updated via the \'<b>Publish</b>\' box.',
+               DOMAIN_PLUGIN)?><?php
+    ?></i></p><?php
     }
 
     function filter_plugin_action_links($arrLinks) {
