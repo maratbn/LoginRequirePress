@@ -226,6 +226,11 @@
         //  and to protect the contents and titles of login-requiring posts in search result
         //  page listings when the user is not logged in.
 
+        //  Busting out if the user is already logged in:
+        if (\is_user_logged_in()) {
+            return $arrPosts;
+        }
+
         //  Busting out if the current query is not for a feed and not for a search result when
         //  the user is not logged in:
         $flagIsSearchNotLoggedIn = \is_search() && !\is_user_logged_in();
