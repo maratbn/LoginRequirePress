@@ -416,7 +416,7 @@
                         <?php
                             if ($isLoginRequired) {
                                 ?><font color='red'><?php
-                                  ?><?=\__(YES,'domain-plugin-LoginRequirePress')?><?php
+                                  ?><?=\__(YES, 'domain-plugin-LoginRequirePress')?><?php
                                 ?></font><?php
                             }
                         ?>
