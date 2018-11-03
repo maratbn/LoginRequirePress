@@ -243,12 +243,10 @@
                     continue;
                 }
 
-                if ($flagIsSearchNotLoggedIn) {
-                    $post->post_content = \__('[Post content protected by Login Require Press.  Login to see the content.]',
-                                              DOMAIN_PLUGIN);
-                    $post->post_title = \__('[Post title protected by Login Require Press.  Login to see the title.]',
-                                            DOMAIN_PLUGIN);
-                }
+                $post->post_content = \__('[Post content protected by Login Require Press.  Login to see the content.]',
+                                          DOMAIN_PLUGIN);
+                $post->post_title = \__('[Post title protected by Login Require Press.  Login to see the title.]',
+                                        DOMAIN_PLUGIN);
             }
 
             \array_push($arrPostsFiltered, $post);
