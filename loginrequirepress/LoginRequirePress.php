@@ -231,19 +231,23 @@
             return $arrPosts;
         }
 
+        $flagIsFeed = \is_feed();
         $flagIsSearchNotLoggedIn = \is_search();
 
         $arrPostsFiltered = [];
 
         foreach ($arrPosts as $post) {
             if (isLoginRequiredForPost($post)) {
+                if ($flagIsFeed) {
+                    //  Completely filter login-protected posts from feeds.
+                    continue;
+                }
+
                 if ($flagIsSearchNotLoggedIn) {
                     $post->post_content = \__('[Post content protected by Login Require Press.  Login to see the content.]',
                                               DOMAIN_PLUGIN);
                     $post->post_title = \__('[Post title protected by Login Require Press.  Login to see the title.]',
                                             DOMAIN_PLUGIN);
-                } else {
-                    continue;
                 }
             }
 
