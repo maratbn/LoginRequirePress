@@ -103,6 +103,7 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 * Tested up to WordPress 4.9.8
 * Added notice that changing settings in the meta box will not persist until the post is updated.
 * Improved post filtering logic.
+* Now also masking post excerpts of login-protected posts from search results.
 
 = 1.2.0 =
 * Tested up to WordPress 4.6

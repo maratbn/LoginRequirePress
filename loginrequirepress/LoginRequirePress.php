@@ -243,6 +243,8 @@
 
                 $post->post_content = \__('[Post content protected by Login Require Press.  Login to see the content.]',
                                           DOMAIN_PLUGIN);
+                $post->post_excerpt = \__('[Post excerpt protected by Login Require Press.  Login to see the excerpt.]',
+                                          DOMAIN_PLUGIN);
                 $post->post_title = \__('[Post title protected by Login Require Press.  Login to see the title.]',
                                         DOMAIN_PLUGIN);
             }
