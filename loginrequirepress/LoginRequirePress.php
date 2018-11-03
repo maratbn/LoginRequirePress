@@ -232,8 +232,6 @@
         }
 
         $flagIsFeed = \is_feed();
-        $flagIsSearchNotLoggedIn = \is_search();
-
         $arrPostsFiltered = [];
 
         foreach ($arrPosts as $post) {
