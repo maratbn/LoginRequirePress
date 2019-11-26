@@ -78,6 +78,7 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 
 = 1.4.0 =
 * Fixed bug that prevented authors without administrative privileges from enabling / disabling login protection on their own posts.
+* Added logic to indicate that the previously-implemented Login Require Press post meta box is not compatible with the new WordPress block editor.
 
 = 1.3.0 =
 * Tested up to WordPress 4.9.8

@@ -106,7 +106,10 @@
         add_meta_box('plugin_LoginRequirePress_require_login',
                      __('Login Require Press', DOMAIN_PLUGIN),
                      '\\plugin_LoginRequirePress\\callbackMetaBox',
-                     null);
+                     null,
+                     'advanced',
+                     'default',
+                     ['__block_editor_compatible_meta_box' => false]);
     }
 
     function action_admin_menu() {
