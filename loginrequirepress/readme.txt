@@ -25,11 +25,11 @@ Overview:
 
   Plugin will still allow unauthenticated downloading of site's feeds, but will filter out all login-requiring posts from the feed listings.
 
-  Plugin will protect the titles and contents of login-requiring posts in search result page listings when the user is not logged in.  The titles / contents will be replaced by text "[Post title / content protected by Login Require Press.  Login to see the title / content.]"
+  Plugin will protect the titles, contents, and excerpts of login-requiring posts in search result page listings when the user is not logged in.  The titles / contents / excerpts will be replaced by text "[Post title / content / excerpts protected by Login Require Press.  Login to see the title / content / excerpt.]"
 
 Technical summary:
 
-  Plugin works by hooking-in special logic into the action 'send_headers' to redirect unauthenticated client browsers to the site's login page from any non-feed and non-search-results page upon detecting any login-requiring post, and by hooking-in another special logic into the filter 'posts_results' to filter out all login-requiring posts from all feed page listings, and to protect the titles and contents of login-requiring posts in search result page listings.
+  Plugin works by hooking-in special logic into the action 'send_headers' to redirect unauthenticated client browsers to the site's login page from any non-feed and non-search-results page upon detecting any login-requiring post, and by hooking-in another special logic into the filter 'posts_results' to filter out all login-requiring posts from all feed page listings, and to protect the titles, contents, and excerpts of login-requiring posts in search result page listings.
 
   Login-requiring posts are marked with a custom field 'login_require_press' set to 'yes'.
 
