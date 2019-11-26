@@ -140,7 +140,9 @@
     }
 
     function action_save_post($idPost) {
-        if (!\current_user_can('manage_options')) return;
+        if (!\current_user_can('manage_options')) {
+            return;
+        }
 
         if (isset($_POST[LOGIN_REQUIRE_PRESS__META]) &&
                   $_POST[LOGIN_REQUIRE_PRESS__META] == PRESENT) {
