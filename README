@@ -27,7 +27,8 @@ Overview:
 
   Login Require Press is a WordPress plugin that allows site administrators to
   specifically designate arbitrary posts with any public post type as viewable
-  only after user login.
+  only after user login.  Post authors can also enable or disable login
+  protection for their own posts.
 
   It is an easy way to require login to view specific pages / posts.
 

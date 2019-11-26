@@ -17,7 +17,7 @@ Overview:
 
   The 'password protected' option allows the site administrator to individually lock certain posts, even from the logged in users, with an additional password / passcode.  However, there is currently no built-in way to just deny access only to the unauthenticated users.
 
-  Login Require Press is a WordPress plugin that allows site administrators to specifically designate arbitrary posts with any public post type as viewable only after user login.
+  Login Require Press is a WordPress plugin that allows site administrators to specifically designate arbitrary posts with any public post type as viewable only after user login.  Post authors can also enable or disable login protection for their own posts.
 
   It is an easy way to require login to view specific pages / posts.
 
