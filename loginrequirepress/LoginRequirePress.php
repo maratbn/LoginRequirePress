@@ -141,7 +141,11 @@
 
     function action_save_post($idPost) {
         if (!\current_user_can('manage_options')) {
-            return;
+            $postToSave = \get_post($idPost);
+            if ($postToSave == null ||
+                $postToSave->post_author != \get_current_user_id()) {
+                return;
+            }
         }
 
         if (isset($_POST[LOGIN_REQUIRE_PRESS__META]) &&
