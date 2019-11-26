@@ -13,7 +13,7 @@ Easy way to require user login to view specific pages / posts.
 
 Overview:
 
-  At the time of this writing, the latest version of WordPress, version 4.9.8, has 3 post visibility options, which are 'public', 'password protected', and 'private'.
+  At the time of this writing, the latest version of WordPress, version 5.3, has 3 post visibility options, which are 'public', 'password protected', and 'private'.
 
   The 'password protected' option allows the site administrator to individually lock certain posts, even from the logged in users, with an additional password / passcode.  However, there is currently no built-in way to just deny access only to the unauthenticated users.
 
