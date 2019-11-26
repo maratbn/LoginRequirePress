@@ -13,44 +13,23 @@ Easy way to require user login to view specific pages / posts.
 
 Overview:
 
-  At the time of this writing, the latest version of WordPress, version 4.9.8,
-  has 3 post visibility options, which are 'public', 'password protected', and
-  'private'.
+  At the time of this writing, the latest version of WordPress, version 4.9.8, has 3 post visibility options, which are 'public', 'password protected', and 'private'.
 
-  The 'password protected' option allows the site administrator to
-  individually lock certain posts, even from the logged in users, with an
-  additional password / passcode.  However, there is currently no built-in way
-  to just deny access only to the unauthenticated users.
+  The 'password protected' option allows the site administrator to individually lock certain posts, even from the logged in users, with an additional password / passcode.  However, there is currently no built-in way to just deny access only to the unauthenticated users.
 
-  Login Require Press is a WordPress plugin that allows site administrators to
-  specifically designate arbitrary posts with any public post type as viewable
-  only after user login.
+  Login Require Press is a WordPress plugin that allows site administrators to specifically designate arbitrary posts with any public post type as viewable only after user login.
 
   It is an easy way to require login to view specific pages / posts.
 
-  Unauthenticated site visitors attempting to view any page that includes any
-  such specifically designated post will then be automatically redirected to
-  the site's default login page, and then back to the original page after they
-  login, thereby limiting access only to logged-in users with subscriber roles
-  and above.
+  Unauthenticated site visitors attempting to view any page that includes any such specifically designated post will then be automatically redirected to the site's default login page, and then back to the original page after they login, thereby limiting access only to logged-in users with subscriber roles and above.
 
-  Plugin will still allow unauthenticated downloading of site's feeds, but
-  will filter out all login-requiring posts from the feed listings.
+  Plugin will still allow unauthenticated downloading of site's feeds, but will filter out all login-requiring posts from the feed listings.
 
-  Plugin will protect the titles and contents of login-requiring posts in
-  search result page listings when the user is not logged in.  The titles /
-  contents will be replaced by text "[Post title / content protected by
-  Login Require Press.  Login to see the title / content.]"
+  Plugin will protect the titles and contents of login-requiring posts in search result page listings when the user is not logged in.  The titles / contents will be replaced by text "[Post title / content protected by Login Require Press.  Login to see the title / content.]"
 
 Technical summary:
 
-  Plugin works by hooking-in special logic into the action 'send_headers' to
-  redirect unauthenticated client browsers to the site's login page from any
-  non-feed and non-search-results page upon detecting any login-requiring post,
-  and by hooking-in another special logic into the filter 'posts_results' to
-  filter out all login-requiring posts from all feed page listings, and to
-  protect the titles and contents of login-requiring posts in search result
-  page listings.
+  Plugin works by hooking-in special logic into the action 'send_headers' to redirect unauthenticated client browsers to the site's login page from any non-feed and non-search-results page upon detecting any login-requiring post, and by hooking-in another special logic into the filter 'posts_results' to filter out all login-requiring posts from all feed page listings, and to protect the titles and contents of login-requiring posts in search result page listings.
 
   Login-requiring posts are marked with a custom field 'login_require_press' set to 'yes'.
 
@@ -89,11 +68,9 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 
 == Screenshots ==
 
-1. Login Require Press configuration screen with the table used to specify which posts are to be
-   login-protected.
+1. Login Require Press configuration screen with the table used to specify which posts are to be login-protected.
 
-2. Login Require Press configuration screen with the lists of private, non-private login-protected,
-   and passcode-protected posts.
+2. Login Require Press configuration screen with the lists of private, non-private login-protected, and passcode-protected posts.
 
 3. Login Require Press edit post meta box to enable or disable login protection.
 
@@ -109,14 +86,12 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 * Tested up to WordPress 4.6
 * Changed the plugin name from 'LoginRequirePress' to 'Login Require Press'.
 * Indicating posts without names by token [no name #] where # is the post ID number.
-* Shortened the plugin description appearing on the admin dashboard plugins list to just one
-  sentence.
+* Shortened the plugin description appearing on the admin dashboard plugins list to just one sentence.
 * Added support for WordPress instances nested inside subdirectories.
 
 = 1.1.0 =
 * Tested up to WordPress 4.5.2
-* Improved the listing-out of posts in the post categorizations sections on the plugin's Settings
-  page.
+* Improved the listing-out of posts in the post categorizations sections on the plugin's Settings page.
 * Added 'Refresh' buttons to the Settings page.
 * Added LoginRequirePress meta box to the post edit screen.
 
@@ -124,8 +99,7 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 * Version incremented to 1.0.0 to signify public release.
 * Tested up to WordPress 4.5
 * Login Required status indicators now in red.
-* Added new 'Default Visibility' column, that indicates posts' present visibility according to the
-  default WordPress logic without this plugin.
+* Added new 'Default Visibility' column, that indicates posts' present visibility according to the default WordPress logic without this plugin.
 * Explicitly listing-out the Private, Login-Protected, and Passcode/Password-Protected posts.
 * Added plugin activation check for PHP version >= 5.4
 * Revised screenshot 1 to display the latest UI, and added screenshot 2.
@@ -133,8 +107,7 @@ Post a bug / feature request, or implement the feature at your leisure, and subm
 = 0.1.2 =
 * Minor improvement to plugin WordPress description meta field.
 * Fixed issue https://github.com/maratbn/LoginRequirePress/issues/2:  Added file 'REQUIREMENTS'.
-* Fixed issue https://github.com/maratbn/LoginRequirePress/issues/3:  Protecting the titles and
-  contents of login-requiring posts in search result page listings when the user is not logged in.
+* Fixed issue https://github.com/maratbn/LoginRequirePress/issues/3:  Protecting the titles and contents of login-requiring posts in search result page listings when the user is not logged in.
 
 = 0.1.1 =
 * Various documentation improvement.
