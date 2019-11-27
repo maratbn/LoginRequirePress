@@ -3,7 +3,7 @@ Contributors: maratbn
 Tags: require login, password protect, security, limit access, control access, members, visitors, subscribers, require-login, password-protect, login-protect, limit-access
 Requires at least: 3.8.1
 Tested up to: 5.3
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
